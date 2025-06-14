@@ -104,17 +104,28 @@ function initCanvasAnimations() {
   const hexSize = 40;
 
   // Create hexagon grid
-  for (let x = 0; x < itCanvas.width + hexSize * 2; x += hexSize * 3) {
-    for (let y = 0; y < itCanvas.height + hexSize * 2; y += hexSize * 2) {
-      hexagons.push({
-        x: x + (Math.floor(y / (hexSize * 2)) % 2) * (hexSize * 1.5),
-        y: y,
-        alpha: Math.random() * 0.5,
-        alphaDirection: Math.random() > 0.5 ? 1 : -1,
-        size: hexSize
-      });
+  function createHexagons() {
+    hexagons.length = 0; // Clear existing hexagons
+    for (let x = 0; x < itCanvas.width + hexSize * 2; x += hexSize * 3) {
+      for (let y = 0; y < itCanvas.height + hexSize * 2; y += hexSize * 2) {
+        hexagons.push({
+          x: x + (Math.floor(y / (hexSize * 2)) % 2) * (hexSize * 1.5),
+          y: y,
+          alpha: Math.random() * 0.5,
+          alphaDirection: Math.random() > 0.5 ? 1 : -1,
+          size: hexSize
+        });
+      }
     }
   }
+
+  createHexagons();
+
+  // Recreate hexagons on resize
+  window.addEventListener('resize', () => {
+    resizeITCanvas();
+    createHexagons();
+  });
 
   function drawHexagon(ctx, x, y, size, alpha) {
     ctx.beginPath();
