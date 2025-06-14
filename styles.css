@@ -927,16 +927,15 @@ body {
 
 .contact-subtitle {
   text-align: center;
-  font-size: 1.3rem;
   color: var(--text-light);
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   opacity: 0.9;
 }
 
 /* Quick Contact Section */
 .contact-quick {
   text-align: center;
-  margin: 3rem 0;
+  margin: 1.5rem 0;
   padding: 2rem;
 }
 
@@ -1089,12 +1088,10 @@ body {
   font-size: 0.9rem;
 }
 
-
-
 /* Contact Form Section */
 .contact-form-section {
   max-width: 800px;
-  margin: 4rem auto;
+  margin: 2rem auto;
   padding: 3rem;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1205,10 +1202,7 @@ body {
 .form-group select {
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23ffffff' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 3rem;
+  padding-right: 1rem;
 }
 
 .form-actions {
