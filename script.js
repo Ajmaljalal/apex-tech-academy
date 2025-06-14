@@ -479,17 +479,8 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Navbar Background on Scroll
-window.addEventListener('scroll', () => {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 100) {
-    navbar.style.background = 'rgba(10, 26, 62, 0.98)';
-    navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
-  } else {
-    navbar.style.background = 'rgba(10, 26, 62, 0.95)';
-    navbar.style.boxShadow = 'none';
-  }
-});
+// Navbar Background on Scroll - REMOVED
+// Background color change on scroll has been disabled
 
 // Typing Effect for Hero Title (optional enhancement)
 function typeWriter(element, text, speed = 100) {
