@@ -521,14 +521,49 @@ body {
 
 .dotted-text {
   display: block;
-  letter-spacing: 5px;
+  letter-spacing: 8px;
   position: relative;
-  background-image: radial-gradient(circle, white 20%, transparent 20%);
-  background-size: 8px 8px;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  font-weight: 900;
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+  font-size: 1.1em;
+  /* Default solid white color for maximum readability */
+  color: var(--text-white);
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 40px rgba(255, 255, 255, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Tech-style underline effect */
+.dotted-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--accent-yellow) 20%,
+      var(--accent-yellow) 80%,
+      transparent);
+  opacity: 0.8;
+  animation: scan-line 3s ease-in-out infinite;
+}
+
+@keyframes scan-line {
+
+  0%,
+  100% {
+    transform: scaleX(0.5);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
 }
 
 .bootcamp-text {
@@ -536,6 +571,42 @@ body {
   color: var(--accent-orange);
   letter-spacing: 8px;
   text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+  font-size: 1.875rem;
+  /* 75% of parent 2.5rem */
+}
+
+/* Specific styles for AI Engineer track */
+.ai-track .dotted-text {
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: brightness(1.2);
+}
+
+.ai-track .dotted-text::after {
+  background: linear-gradient(90deg,
+      transparent,
+      #00f2fe 20%,
+      #4facfe 80%,
+      transparent);
+}
+
+/* Specific styles for IT Specialist track */
+.it-track .dotted-text {
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: brightness(1.2);
+}
+
+.it-track .dotted-text::after {
+  background: linear-gradient(90deg,
+      transparent,
+      #00f2fe 20%,
+      #4facfe 80%,
+      transparent);
 }
 
 .track-badge {
