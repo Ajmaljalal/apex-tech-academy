@@ -9,6 +9,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&display=swap"
       rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
 
   <body>
@@ -92,7 +93,7 @@
           </div>
         </div>
         <div class="hero-location">
-          📍 Classroom-Based Training in Sacramento, CA
+          <i class="fas fa-map-marker-alt"></i> Classroom-Based Training in Sacramento, CA
         </div>
         <a href="#programs" class="cta-button">Explore Programs</a>
       </div>
@@ -264,24 +265,77 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
-        <h2 class="section-title">Contact Us for Registration</h2>
-        <div class="contact-cards">
-          <div class="contact-card">
-            <div class="contact-icon">🌐</div>
-            <h3>Website</h3>
-            <p>www.apextechacademy.com</p>
-          </div>
-          <div class="contact-card">
-            <div class="contact-icon">📞</div>
-            <h3>Phone</h3>
-            <p>(916) 000-0000</p>
-          </div>
-          <div class="contact-card">
-            <div class="contact-icon">📧</div>
-            <h3>Email</h3>
-            <p>info@apextechacademy.com</p>
-          </div>
+        <h2 class="section-title">Ready to Start Your Journey?</h2>
+        <p class="contact-subtitle">Get in touch with us to secure your spot in the next cohort</p>
+
+        <div class="contact-quick">
+          <p class="contact-direct">
+            <i class="fas fa-envelope"></i>
+            Email us directly at
+            <a href="mailto:info@apextechacademy.com" class="email-link">info@apextechacademy.com</a>
+          </p>
         </div>
+
+        <div class="contact-form-section">
+          <h3 class="form-title">Send Us a Message</h3>
+          <p class="form-subtitle">Fill out the form below and we'll get back to you within 24 hours</p>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <i class="fas fa-user form-icon"></i>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <i class="fas fa-user form-icon"></i>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <i class="fas fa-envelope form-icon"></i>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(xxx) xxx-xxxx">
+                <i class="fas fa-phone form-icon"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="program">Program of Interest</label>
+              <select id="program" name="program" required>
+                <option value="">Select a program</option>
+                <option value="ai-engineer">AI Engineer Bootcamp</option>
+                <option value="it-specialist">IT Specialist Bootcamp</option>
+                <option value="both">Interested in Both</option>
+              </select>
+              <i class="fas fa-graduation-cap form-icon"></i>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4"
+                placeholder="Tell us about your goals and any questions you have..."></textarea>
+              <i class="fas fa-comment-dots form-icon"></i>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="submit-btn">
+                <span class="btn-text">Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+              <p class="form-note">Or call us directly at <a href="tel:9160000000">(916) 000-0000</a></p>
+            </div>
+          </form>
+        </div>
+
+
       </div>
     </section>
 

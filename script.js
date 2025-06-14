@@ -361,9 +361,65 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe elements
-document.querySelectorAll('.track-container, .contact-card').forEach(el => {
+document.querySelectorAll('.track-container').forEach(el => {
   observer.observe(el);
 });
+
+// Special observer for contact cards with staggered animation
+const contactObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }, index * 150);
+    }
+  });
+}, observerOptions);
+
+// Observe contact cards
+document.querySelectorAll('.contact-card').forEach((card, index) => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(30px)';
+  card.style.transition = 'all 0.6s ease';
+  contactObserver.observe(card);
+});
+
+// Observe contact form section
+const formSection = document.querySelector('.contact-form-section');
+if (formSection) {
+  formSection.style.opacity = '0';
+  formSection.style.transform = 'translateY(30px)';
+  formSection.style.transition = 'all 0.8s ease';
+
+  const formObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+
+          // Animate form fields
+          entry.target.querySelectorAll('.form-group').forEach((group, index) => {
+            setTimeout(() => {
+              group.style.opacity = '1';
+              group.style.transform = 'translateX(0)';
+            }, index * 100);
+          });
+        }, 200);
+      }
+    });
+  }, observerOptions);
+
+  formObserver.observe(formSection);
+
+  // Initially hide form groups
+  formSection.querySelectorAll('.form-group').forEach(group => {
+    group.style.opacity = '0';
+    group.style.transform = 'translateX(-20px)';
+    group.style.transition = 'all 0.5s ease';
+  });
+}
 
 // Parallax Effect for Hero Section
 window.addEventListener('scroll', () => {
@@ -494,19 +550,144 @@ window.addEventListener('load', () => {
 // Add hover effect to contact cards
 document.querySelectorAll('.contact-card').forEach(card => {
   card.addEventListener('mouseenter', function () {
-    this.style.transform = 'translateY(-10px) scale(1.02)';
+    // Hover effect is now handled by CSS
   });
 
   card.addEventListener('mouseleave', function () {
-    this.style.transform = 'translateY(0) scale(1)';
+    // Hover effect is now handled by CSS
   });
 });
 
-// Form submission handling (if you add a contact form later)
-function handleFormSubmit(e) {
-  e.preventDefault();
-  // Add form submission logic here
-  console.log('Form submitted');
+
+
+// Contact Form Handling
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  // Add form message container
+  const formMessage = document.createElement('div');
+  formMessage.className = 'form-message';
+  contactForm.insertBefore(formMessage, contactForm.firstChild);
+
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Get form data
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+
+    // Basic validation
+    let isValid = true;
+    const requiredFields = ['firstName', 'lastName', 'email', 'program'];
+
+    // Clear previous validation states
+    document.querySelectorAll('.form-group').forEach(group => {
+      group.classList.remove('error', 'success');
+    });
+
+    // Validate required fields
+    requiredFields.forEach(field => {
+      const input = this.querySelector(`[name="${field}"]`);
+      const formGroup = input.closest('.form-group');
+
+      if (!input.value.trim()) {
+        formGroup.classList.add('error');
+        isValid = false;
+      } else {
+        formGroup.classList.add('success');
+      }
+    });
+
+    // Email validation
+    const emailInput = this.querySelector('[name="email"]');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailInput.value && !emailRegex.test(emailInput.value)) {
+      emailInput.closest('.form-group').classList.add('error');
+      isValid = false;
+    }
+
+    // Phone validation (optional field)
+    const phoneInput = this.querySelector('[name="phone"]');
+    if (phoneInput.value) {
+      const phoneRegex = /^[\d\s\-\(\)]+$/;
+      if (!phoneRegex.test(phoneInput.value)) {
+        phoneInput.closest('.form-group').classList.add('error');
+        isValid = false;
+      }
+    }
+
+    if (isValid) {
+      // Show loading state
+      const submitBtn = this.querySelector('.submit-btn');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+      // Simulate form submission
+      setTimeout(() => {
+        // Show success message
+        formMessage.className = 'form-message success';
+        formMessage.textContent = 'Thank you for your message! We\'ll get back to you within 24 hours.';
+        formMessage.style.display = 'block';
+
+        // Reset form
+        this.reset();
+        document.querySelectorAll('.form-group').forEach(group => {
+          group.classList.remove('error', 'success');
+        });
+
+        // Restore button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          formMessage.style.display = 'none';
+        }, 5000);
+
+        // Log form data (replace with actual submission)
+        console.log('Form submitted:', data);
+      }, 1500);
+    } else {
+      // Show error message
+      formMessage.className = 'form-message error';
+      formMessage.textContent = 'Please fill in all required fields correctly.';
+      formMessage.style.display = 'block';
+
+      // Hide message after 3 seconds
+      setTimeout(() => {
+        formMessage.style.display = 'none';
+      }, 3000);
+    }
+  });
+
+  // Real-time validation
+  contactForm.querySelectorAll('input, select, textarea').forEach(field => {
+    field.addEventListener('blur', function () {
+      const formGroup = this.closest('.form-group');
+
+      if (this.hasAttribute('required') && !this.value.trim()) {
+        formGroup.classList.add('error');
+        formGroup.classList.remove('success');
+      } else if (this.value.trim()) {
+        formGroup.classList.remove('error');
+        formGroup.classList.add('success');
+      }
+    });
+  });
+
+  // Phone number formatting
+  const phoneInput = contactForm.querySelector('[name="phone"]');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function (e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length >= 6) {
+        value = value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6, 10);
+      } else if (value.length >= 3) {
+        value = value.slice(0, 3) + '-' + value.slice(3);
+      }
+      e.target.value = value;
+    });
+  }
 }
 
 // Performance optimization - Debounce scroll events
