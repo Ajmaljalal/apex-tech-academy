@@ -144,16 +144,32 @@ class ParticleNetwork {
   }
 }
 
+// Mobile Detection
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
 // Canvas Background Animations
 function initCanvasAnimations() {
+  // Reduce animation complexity on mobile
+  const mobileOptions = isMobile() ? {
+    particleCountMultiplier: 0.4,
+    lineDistanceMultiplier: 0.8,
+    particleSpeedMultiplier: 0.7
+  } : {
+    particleCountMultiplier: 1,
+    lineDistanceMultiplier: 1,
+    particleSpeedMultiplier: 1
+  };
+
   // Hero Canvas - Particle Network
   const heroCanvas = document.getElementById('heroCanvas');
   if (heroCanvas) {
     const heroNetwork = new ParticleNetwork(heroCanvas, {
-      particleCount: 120,
+      particleCount: Math.floor(120 * mobileOptions.particleCountMultiplier),
       particleSize: 2.5,
-      lineDistance: 150,
-      particleSpeed: 0.4
+      lineDistance: Math.floor(150 * mobileOptions.lineDistanceMultiplier),
+      particleSpeed: 0.4 * mobileOptions.particleSpeedMultiplier
     });
     heroNetwork.animate();
   }
@@ -165,10 +181,10 @@ function initCanvasAnimations() {
     // Ensure canvas has proper rendering settings
     aiCtx.imageSmoothingEnabled = false;
     const aiNetwork = new ParticleNetwork(aiCanvas, {
-      particleCount: 100,
+      particleCount: Math.floor(100 * mobileOptions.particleCountMultiplier),
       particleSize: 2.5,
-      lineDistance: 150,
-      particleSpeed: 0.3
+      lineDistance: Math.floor(150 * mobileOptions.lineDistanceMultiplier),
+      particleSpeed: 0.3 * mobileOptions.particleSpeedMultiplier
     });
 
     function resizeCanvas() {
@@ -227,10 +243,10 @@ function initCanvasAnimations() {
     // Ensure canvas has proper rendering settings
     itCtx.imageSmoothingEnabled = false;
     const itNetwork = new ParticleNetwork(itCanvas, {
-      particleCount: 120,
+      particleCount: Math.floor(120 * mobileOptions.particleCountMultiplier),
       particleSize: 3,
-      lineDistance: 150,
-      particleSpeed: 0.4
+      lineDistance: Math.floor(150 * mobileOptions.lineDistanceMultiplier),
+      particleSpeed: 0.4 * mobileOptions.particleSpeedMultiplier
     });
 
     function resizeITCanvas() {
@@ -333,6 +349,22 @@ function initCanvasAnimations() {
 // Initialize canvas animations when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initCanvasAnimations();
+
+  // Re-initialize canvas animations on window resize to adjust for mobile/desktop
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      // Only re-initialize if mobile state changed
+      const wasMobile = window.innerWidth <= 768;
+      setTimeout(() => {
+        const isMobileNow = window.innerWidth <= 768;
+        if (wasMobile !== isMobileNow) {
+          initCanvasAnimations();
+        }
+      }, 100);
+    }, 250);
+  });
 });
 
 // Intersection Observer for Scroll Animations

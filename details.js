@@ -1,3 +1,8 @@
+// Mobile Detection for Detail Pages
+function isMobileDetail() {
+  return window.innerWidth <= 768;
+}
+
 // Canvas Background Animation for Detail Pages
 function initDetailCanvas() {
   const canvas = document.getElementById('bgCanvas');
@@ -5,6 +10,12 @@ function initDetailCanvas() {
 
   const ctx = canvas.getContext('2d');
   let particles = [];
+
+  // Mobile optimization settings
+  const isMobile = isMobileDetail();
+  const particleCount = isMobile ? 50 : 100; // Reduce particles on mobile
+  const lineDistance = isMobile ? 80 : 100; // Reduce connection distance on mobile
+  const speedMultiplier = isMobile ? 0.7 : 1; // Slower movement on mobile
 
   // Set canvas size
   function resizeCanvas() {
@@ -20,8 +31,8 @@ function initDetailCanvas() {
     constructor() {
       this.x = Math.random() * canvas.width;
       this.y = Math.random() * canvas.height;
-      this.vx = (Math.random() - 0.5) * 0.5;
-      this.vy = (Math.random() - 0.5) * 0.5;
+      this.vx = (Math.random() - 0.5) * 0.5 * speedMultiplier;
+      this.vy = (Math.random() - 0.5) * 0.5 * speedMultiplier;
       this.radius = Math.random() * 2 + 1;
       this.opacity = Math.random() * 0.5 + 0.3;
     }
@@ -45,8 +56,8 @@ function initDetailCanvas() {
     }
   }
 
-  // Create particles
-  for (let i = 0; i < 100; i++) {
+  // Create particles with mobile optimization
+  for (let i = 0; i < particleCount; i++) {
     particles.push(new Particle());
   }
 
@@ -58,8 +69,8 @@ function initDetailCanvas() {
         const dy = particles[i].y - particles[j].y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < 100) {
-          const opacity = (1 - distance / 100) * 0.3;
+        if (distance < lineDistance) {
+          const opacity = (1 - distance / lineDistance) * (isMobile ? 0.2 : 0.3);
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
@@ -92,6 +103,22 @@ function initDetailCanvas() {
 // Initialize canvas when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initDetailCanvas();
+
+  // Re-initialize canvas on window resize to adjust for mobile/desktop
+  let detailResizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(detailResizeTimeout);
+    detailResizeTimeout = setTimeout(() => {
+      // Only re-initialize if mobile state changed
+      const wasMobile = window.innerWidth <= 768;
+      setTimeout(() => {
+        const isMobileNow = window.innerWidth <= 768;
+        if (wasMobile !== isMobileNow) {
+          initDetailCanvas();
+        }
+      }, 100);
+    }, 250);
+  });
 
   // Add scroll animations for modules
   const modules = document.querySelectorAll('.module');

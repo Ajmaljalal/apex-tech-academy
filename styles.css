@@ -1444,22 +1444,38 @@ body {
   .modal-content {
     width: 95%;
     max-height: 95vh;
+    margin: 1rem;
   }
 
   .modal-header {
-    padding: 1.5rem 2rem 1rem;
+    padding: 1.5rem 1.5rem 1rem;
   }
 
   .modal-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .modal-body {
-    padding: 1.5rem 2rem 2rem;
+    padding: 1rem 1.5rem 2rem;
   }
 
   .modal-close {
     font-size: 1.5rem;
+  }
+
+  /* Additional modal form adjustments */
+  .modal .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .modal .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .modal .submit-btn {
+    font-size: 1rem;
+    padding: 1rem 2rem;
   }
 }
 
@@ -1545,6 +1561,17 @@ body {
 }
 
 @media (max-width: 768px) {
+
+  /* Reduce container padding on mobile */
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Navigation adjustments */
+  .nav-container {
+    padding: 0 1rem;
+  }
+
   .nav-menu {
     position: fixed;
     left: -100%;
@@ -1565,8 +1592,18 @@ body {
     display: flex;
   }
 
+  /* Hero section font size adjustments */
   .hero-title {
-    font-size: clamp(2rem, 6vw, 4rem);
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-location {
+    font-size: 1rem;
   }
 
   .hero-features {
@@ -1578,8 +1615,58 @@ body {
     display: none;
   }
 
+  .feature-number {
+    font-size: 2rem;
+  }
+
+  .feature-text {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+  }
+
+  /* Section titles smaller on mobile */
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Track content adjustments */
   .track-content {
-    padding: 2rem;
+    padding: 1.5rem;
+  }
+
+  .track-title {
+    font-size: 1.8rem;
+  }
+
+  .dotted-text {
+    letter-spacing: 4px;
+    font-size: 1rem;
+  }
+
+  .bootcamp-text {
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+  }
+
+  .duration {
+    font-size: 1.5rem;
+  }
+
+  .fee {
+    font-size: 1.5rem;
+  }
+
+  .program-type {
+    font-size: 0.9rem;
+  }
+
+  .curriculum-container h4 {
+    font-size: 1.2rem;
   }
 
   .duration-fee {
@@ -1590,5 +1677,120 @@ body {
 
   .divider {
     display: none;
+  }
+
+  /* Blur background canvas on mobile */
+  .hero-canvas,
+  #aiCanvas,
+  #itCanvas,
+  #bgCanvas {
+    filter: blur(2px);
+    opacity: 0.2;
+  }
+
+  /* Contact section adjustments */
+  .contact-direct {
+    font-size: 1.2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .email-link {
+    font-size: 1.4rem;
+  }
+
+  .contact-form-section {
+    padding: 1.5rem;
+  }
+
+  .form-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* Additional mobile breakpoint for very small screens */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .nav-container {
+    padding: 0 0.75rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .track-content {
+    padding: 1rem;
+  }
+
+  .track-title {
+    font-size: 1.5rem;
+  }
+
+  .dotted-text {
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+  }
+
+  .bootcamp-text {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  .duration,
+  .fee {
+    font-size: 1.3rem;
+  }
+
+  .contact-form-section {
+    padding: 1rem;
+  }
+
+  /* More aggressive blur for very small screens */
+  .hero-canvas,
+  #aiCanvas,
+  #itCanvas,
+  #bgCanvas {
+    filter: blur(3px);
+    opacity: 0.15;
+  }
+
+  /* Loading screen adjustments for very small screens */
+  .loader {
+    width: 100px;
+    height: 100px;
+  }
+
+  .loading-text {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  /* Modal adjustments for very small screens */
+  .modal-content {
+    margin: 0.5rem;
+  }
+
+  .modal-header {
+    padding: 1rem 1rem 0.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.1rem;
+  }
+
+  .modal-body {
+    padding: 0.5rem 1rem 1.5rem;
   }
 }

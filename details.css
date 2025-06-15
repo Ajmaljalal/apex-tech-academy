@@ -354,40 +354,195 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+  /* Reduce container padding on mobile detail pages */
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Detail hero adjustments */
+  .detail-hero {
+    padding-top: 80px;
+  }
+
   .detail-title {
     font-size: 2rem;
+    margin-bottom: 0.5rem;
   }
 
   .title-main {
-    font-size: 2rem;
-    letter-spacing: 4px;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
   }
 
   .title-sub {
-    font-size: 1.5rem;
-    letter-spacing: 6px;
+    font-size: 1.3rem;
+    letter-spacing: 4px;
   }
 
   .detail-tagline {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 
   .key-info {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
+  .info-item {
+    padding: 1rem;
+  }
+
+  .info-label {
+    font-size: 0.8rem;
+  }
+
+  .info-value {
+    font-size: 1.2rem;
+  }
+
+  /* Section adjustments */
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .overview-text {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Curriculum modules */
   .curriculum-modules {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .module-header {
+    padding: 1rem;
+  }
+
+  .module-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .module-content {
+    padding: 1rem;
+  }
+
+  /* Schedule cards */
+  .schedule-card {
+    padding: 1.5rem;
+  }
+
+  .schedule-card h3 {
+    font-size: 1.1rem;
+  }
+
+  /* CTA section */
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+
+  .cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
   }
 
   .cta-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
 
   .cta-buttons a,
   .cta-buttons button {
     width: 100%;
     max-width: 300px;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+  }
+
+  /* Blur background canvas on mobile detail pages */
+  #bgCanvas {
+    filter: blur(2px);
+    opacity: 0.2;
+  }
+}
+
+/* Additional mobile breakpoint for very small screens */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .detail-hero {
+    padding-top: 70px;
+  }
+
+  .title-main {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .title-sub {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+  }
+
+  .detail-tagline {
+    font-size: 0.9rem;
+  }
+
+  .key-info {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .overview-text {
+    font-size: 0.95rem;
+  }
+
+  .highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-card {
+    padding: 1.5rem;
+  }
+
+  .highlight-icon {
+    font-size: 2rem;
+  }
+
+  .highlight-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .module-header h3 {
+    font-size: 1rem;
+  }
+
+  .module-duration {
+    font-size: 0.8rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+  }
+
+  /* More aggressive blur for very small screens */
+  #bgCanvas {
+    filter: blur(3px);
+    opacity: 0.15;
   }
 }
