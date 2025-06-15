@@ -131,17 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Navbar background on scroll
-  const navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.style.background = 'rgba(10, 26, 62, 0.98)';
-      navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
-    } else {
-      navbar.style.background = 'rgba(10, 26, 62, 0.95)';
-      navbar.style.boxShadow = 'none';
-    }
-  });
+
 });
 
 // Add hover effect to highlight cards
@@ -155,9 +145,12 @@ document.querySelectorAll('.highlight-card').forEach(card => {
   });
 });
 
-// Add click animation to enroll button
+// Add click animation to enroll button and open modal
 document.querySelectorAll('.enroll-btn').forEach(button => {
   button.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // Create ripple effect
     const ripple = document.createElement('span');
     const rect = this.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height);
@@ -174,5 +167,262 @@ document.querySelectorAll('.enroll-btn').forEach(button => {
     setTimeout(() => {
       ripple.remove();
     }, 600);
+
+    // Open registration modal
+    const program = this.getAttribute('data-program');
+    if (program) {
+      openRegistrationModal(program);
+    }
   });
-}); 
+});
+
+// Registration Modal Functionality
+const registrationModal = document.getElementById('registrationModal');
+const modalClose = document.querySelector('.modal-close');
+const registrationForm = document.getElementById('registrationForm');
+const registrationMessage = document.getElementById('registrationMessage');
+
+function openRegistrationModal(program = '') {
+  registrationModal.classList.add('show');
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+  // Pre-select the program if specified
+  if (program) {
+    const programSelect = document.getElementById('regProgram');
+    programSelect.value = program;
+
+    // Update modal title based on program
+    const modalTitle = document.querySelector('.modal-title');
+    if (program === 'ai-engineer') {
+      modalTitle.textContent = 'Register for AI Engineer Bootcamp';
+    } else if (program === 'it-specialist') {
+      modalTitle.textContent = 'Register for IT Specialist Bootcamp';
+    }
+  }
+
+  // Focus on first input field
+  setTimeout(() => {
+    document.getElementById('regFirstName').focus();
+  }, 300);
+}
+
+function closeRegistrationModal() {
+  registrationModal.classList.remove('show');
+  document.body.style.overflow = 'auto'; // Restore scrolling
+
+  // Reset form and messages
+  registrationForm.reset();
+  registrationMessage.style.display = 'none';
+  registrationMessage.className = 'form-message';
+
+  // Remove validation states
+  document.querySelectorAll('.registration-form .form-group').forEach(group => {
+    group.classList.remove('error', 'success');
+  });
+
+  // Reset modal title
+  document.querySelector('.modal-title').textContent = 'Register for Program';
+}
+
+// Close modal when X is clicked
+if (modalClose) {
+  modalClose.addEventListener('click', closeRegistrationModal);
+}
+
+// Close modal when clicking outside
+if (registrationModal) {
+  registrationModal.addEventListener('click', function (e) {
+    if (e.target === registrationModal) {
+      closeRegistrationModal();
+    }
+  });
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && registrationModal && registrationModal.classList.contains('show')) {
+    closeRegistrationModal();
+  }
+});
+
+// Registration Form Handling
+if (registrationForm) {
+  registrationForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Get form data
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+
+    // Basic validation
+    let isValid = true;
+    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'program', 'age', 'education'];
+
+    // Clear previous validation states
+    document.querySelectorAll('.registration-form .form-group').forEach(group => {
+      group.classList.remove('error', 'success');
+    });
+
+    // Validate required fields
+    requiredFields.forEach(field => {
+      const input = this.querySelector(`[name="${field}"]`);
+      const formGroup = input.closest('.form-group');
+
+      if (!input.value.trim()) {
+        formGroup.classList.add('error');
+        isValid = false;
+      } else {
+        formGroup.classList.add('success');
+      }
+    });
+
+    // Email validation
+    const emailInput = this.querySelector('[name="email"]');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailInput.value && !emailRegex.test(emailInput.value)) {
+      emailInput.closest('.form-group').classList.add('error');
+      isValid = false;
+    }
+
+    // Phone validation
+    const phoneInput = this.querySelector('[name="phone"]');
+    const phoneRegex = /^[\d\s\-\(\)]+$/;
+    if (phoneInput.value && !phoneRegex.test(phoneInput.value)) {
+      phoneInput.closest('.form-group').classList.add('error');
+      isValid = false;
+    }
+
+    // Age validation
+    const ageInput = this.querySelector('[name="age"]');
+    const age = parseInt(ageInput.value);
+    if (age < 16 || age > 100) {
+      ageInput.closest('.form-group').classList.add('error');
+      isValid = false;
+    }
+
+    if (isValid) {
+      // Show loading state
+      const submitBtn = this.querySelector('.submit-btn');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Registration...';
+
+      // Simulate form submission
+      setTimeout(() => {
+        // Show success message
+        registrationMessage.className = 'form-message success';
+        registrationMessage.textContent = 'Registration submitted successfully! Our admissions team will contact you within 24 hours to complete your enrollment.';
+        registrationMessage.style.display = 'block';
+
+        // Reset form
+        this.reset();
+        document.querySelectorAll('.registration-form .form-group').forEach(group => {
+          group.classList.remove('error', 'success');
+        });
+
+        // Restore button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+
+        // Auto-close modal after success
+        setTimeout(() => {
+          closeRegistrationModal();
+
+          // Show a brief success notification
+          const notification = document.createElement('div');
+          notification.innerHTML = `
+            <div style="
+              position: fixed;
+              top: 20px;
+              right: 20px;
+              background: linear-gradient(135deg, #4caf50, #45a049);
+              color: white;
+              padding: 1rem 2rem;
+              border-radius: 10px;
+              box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+              z-index: 10001;
+              animation: slideInRight 0.5s ease-out;
+            ">
+              <i class="fas fa-check-circle"></i> Registration submitted successfully!
+            </div>
+          `;
+          document.body.appendChild(notification);
+
+          setTimeout(() => {
+            notification.remove();
+          }, 5000);
+        }, 3000);
+
+        // Log form data (replace with actual submission)
+        console.log('Registration submitted:', data);
+      }, 2000);
+    } else {
+      // Show error message
+      registrationMessage.className = 'form-message error';
+      registrationMessage.textContent = 'Please fill in all required fields correctly.';
+      registrationMessage.style.display = 'block';
+
+      // Hide message after 3 seconds
+      setTimeout(() => {
+        registrationMessage.style.display = 'none';
+      }, 3000);
+    }
+  });
+
+  // Real-time validation for registration form
+  registrationForm.querySelectorAll('input, select, textarea').forEach(field => {
+    field.addEventListener('blur', function () {
+      const formGroup = this.closest('.form-group');
+
+      if (this.hasAttribute('required') && !this.value.trim()) {
+        formGroup.classList.add('error');
+        formGroup.classList.remove('success');
+      } else if (this.value.trim()) {
+        formGroup.classList.remove('error');
+        formGroup.classList.add('success');
+      }
+    });
+  });
+
+  // Phone number formatting for registration form
+  const regPhoneInput = registrationForm.querySelector('[name="phone"]');
+  if (regPhoneInput) {
+    regPhoneInput.addEventListener('input', function (e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length >= 6) {
+        value = value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6, 10);
+      } else if (value.length >= 3) {
+        value = value.slice(0, 3) + '-' + value.slice(3);
+      }
+      e.target.value = value;
+    });
+  }
+}
+
+// Add ripple effect styles if not already present
+if (!document.querySelector('#ripple-styles')) {
+  const style = document.createElement('style');
+  style.id = 'ripple-styles';
+  style.textContent = `
+    .enroll-btn, .contact-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transform: scale(0);
+      animation: ripple-animation 0.6s ease-out;
+    }
+    
+    @keyframes ripple-animation {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+} 

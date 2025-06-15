@@ -42,7 +42,6 @@
       <div class="nav-container">
         <div class="logo">
           <img src="./logo.png" style="width: 60px; height: 60px;" alt="Apex Tech Academy">
-          <span class="logo-text">APEX TECH ACADEMY</span>
         </div>
         <ul class="nav-menu">
           <li><a href="#home" class="nav-link">Home</a></li>
@@ -167,7 +166,7 @@
                 </ul>
               </div>
 
-              <button class="track-cta">Enroll in AI Engineering</button>
+              <button class="track-cta" data-program="ai-engineer">Register</button>
               <a href="ai-engineer-details.html" class="details-btn">
                 <span class="btn-text">View Course Details</span>
                 <span class="btn-arrow">→</span>
@@ -240,7 +239,7 @@
                 </ul>
               </div>
 
-              <button class="track-cta">Enroll in IT Specialist</button>
+              <button class="track-cta" data-program="it-specialist">Register</button>
               <a href="it-specialist-details.html" class="details-btn">
                 <span class="btn-text">View Course Details</span>
                 <span class="btn-arrow">→</span>
@@ -327,6 +326,112 @@
 
       </div>
     </section>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Register for Program</h2>
+          <span class="modal-close">&times;</span>
+        </div>
+
+        <div class="modal-body">
+          <p class="modal-subtitle">Start your journey towards a new career. Fill out the form below to secure your
+            spot.</p>
+
+          <form class="registration-form" id="registrationForm">
+            <div class="form-message" id="registrationMessage"></div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="regFirstName">First Name *</label>
+                <input type="text" id="regFirstName" name="firstName" required>
+                <i class="fas fa-user form-icon"></i>
+              </div>
+              <div class="form-group">
+                <label for="regLastName">Last Name *</label>
+                <input type="text" id="regLastName" name="lastName" required>
+                <i class="fas fa-user form-icon"></i>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="regEmail">Email Address *</label>
+                <input type="email" id="regEmail" name="email" required>
+                <i class="fas fa-envelope form-icon"></i>
+              </div>
+              <div class="form-group">
+                <label for="regPhone">Phone Number *</label>
+                <input type="tel" id="regPhone" name="phone" placeholder="(xxx) xxx-xxxx" required>
+                <i class="fas fa-phone form-icon"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regProgram">Program *</label>
+              <select id="regProgram" name="program" required>
+                <option value="">Select a program</option>
+                <option value="ai-engineer">AI Engineer Bootcamp</option>
+                <option value="it-specialist">IT Specialist Bootcamp</option>
+              </select>
+              <i class="fas fa-graduation-cap form-icon"></i>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="regAge">Age *</label>
+                <input type="number" id="regAge" name="age" min="16" max="100" required>
+                <i class="fas fa-calendar form-icon"></i>
+              </div>
+              <div class="form-group">
+                <label for="regEducation">Education Level *</label>
+                <select id="regEducation" name="education" required>
+                  <option value="">Select education level</option>
+                  <option value="high-school">High School</option>
+                  <option value="some-college">Some College</option>
+                  <option value="associates">Associate's Degree</option>
+                  <option value="bachelors">Bachelor's Degree</option>
+                  <option value="masters">Master's Degree</option>
+                  <option value="other">Other</option>
+                </select>
+                <i class="fas fa-book form-icon"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regExperience">Prior Tech Experience</label>
+              <select id="regExperience" name="experience">
+                <option value="">Select experience level</option>
+                <option value="none">No experience</option>
+                <option value="beginner">Beginner (0-1 years)</option>
+                <option value="intermediate">Intermediate (1-3 years)</option>
+                <option value="advanced">Advanced (3+ years)</option>
+              </select>
+              <i class="fas fa-code form-icon"></i>
+            </div>
+
+            <div class="form-group">
+              <label for="regGoals">Career Goals & Motivation</label>
+              <textarea id="regGoals" name="goals" rows="4"
+                placeholder="Tell us about your career goals and what motivates you to join this program..."></textarea>
+              <i class="fas fa-target form-icon"></i>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="submit-btn">
+                <span class="btn-text">Submit Registration</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+              <p class="form-note">
+                By submitting this form, you agree to be contacted by our admissions team.
+                <br>Need help? Call us at <a href="tel:9160000000">(916) 000-0000</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
