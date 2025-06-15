@@ -162,6 +162,13 @@
 .highlight-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: var(--accent-orange);
+  transition: all 0.3s ease;
+}
+
+.highlight-card:hover .highlight-icon {
+  color: var(--accent-yellow);
+  transform: scale(1.1);
 }
 
 .highlight-card h3 {
@@ -281,6 +288,125 @@
   font-size: 1.1rem;
   color: var(--accent-yellow);
   margin-top: 1rem;
+}
+
+/* Next Cohort Section */
+.next-cohort {
+  padding: 4rem 0;
+  background: var(--primary-bg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.next-cohort::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg,
+      rgba(255, 107, 53, 0.05) 0%,
+      rgba(255, 215, 0, 0.05) 50%,
+      rgba(255, 107, 53, 0.05) 100%);
+  z-index: 1;
+}
+
+.next-cohort .container {
+  position: relative;
+  z-index: 2;
+}
+
+.cohort-info {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.cohort-card {
+  background: rgba(10, 26, 62, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 3rem 4rem;
+  border-radius: 20px;
+  text-align: center;
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  transition: all 0.4s ease;
+  max-width: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cohort-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg,
+      var(--accent-orange),
+      var(--accent-yellow),
+      var(--accent-orange),
+      var(--accent-yellow));
+  background-size: 400% 400%;
+  border-radius: 22px;
+  z-index: -1;
+  animation: borderGlow 3s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes borderGlow {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.cohort-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-yellow);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(255, 215, 0, 0.2);
+}
+
+.cohort-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1a3a5e;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(26, 58, 94, 0.5);
+}
+
+.cohort-date {
+  font-family: var(--font-tech);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent-yellow);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+}
+
+.cohort-note {
+  color: var(--text-white);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  opacity: 1;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.cohort-action {
+  color: #1a3a5e;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(26, 58, 94, 0.5);
 }
 
 /* CTA Section */
@@ -446,6 +572,20 @@
     font-size: 1.1rem;
   }
 
+  /* Next Cohort section */
+  .next-cohort {
+    padding: 3rem 0;
+  }
+
+  .cohort-card {
+    padding: 2rem;
+    max-width: 100%;
+  }
+
+  .cohort-date {
+    font-size: 2rem;
+  }
+
   /* CTA section */
   .cta-section h2 {
     font-size: 2rem;
@@ -550,6 +690,28 @@
 
   .cta-section p {
     font-size: 1rem;
+  }
+
+  /* Next Cohort section for very small screens */
+  .next-cohort {
+    padding: 2rem 0;
+  }
+
+  .cohort-card {
+    padding: 1.5rem;
+  }
+
+  .cohort-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .cohort-date {
+    font-size: 1.8rem;
+  }
+
+  .cohort-note,
+  .cohort-action {
+    font-size: 0.9rem;
   }
 
   /* More aggressive blur for very small screens */
