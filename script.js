@@ -181,7 +181,7 @@ function initCanvasAnimations() {
     // Ensure canvas has proper rendering settings
     aiCtx.imageSmoothingEnabled = false;
     const aiNetwork = new ParticleNetwork(aiCanvas, {
-      particleCount: Math.floor(100 * mobileOptions.particleCountMultiplier),
+      particleCount: Math.floor(40 * mobileOptions.particleCountMultiplier),
       particleSize: 2.5,
       lineDistance: Math.floor(150 * mobileOptions.lineDistanceMultiplier),
       particleSpeed: 0.3 * mobileOptions.particleSpeedMultiplier
@@ -243,7 +243,7 @@ function initCanvasAnimations() {
     // Ensure canvas has proper rendering settings
     itCtx.imageSmoothingEnabled = false;
     const itNetwork = new ParticleNetwork(itCanvas, {
-      particleCount: Math.floor(120 * mobileOptions.particleCountMultiplier),
+      particleCount: Math.floor(50 * mobileOptions.particleCountMultiplier),
       particleSize: 3,
       lineDistance: Math.floor(150 * mobileOptions.lineDistanceMultiplier),
       particleSpeed: 0.4 * mobileOptions.particleSpeedMultiplier
