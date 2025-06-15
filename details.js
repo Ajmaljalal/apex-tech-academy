@@ -275,8 +275,6 @@ document.addEventListener('keydown', function (e) {
 // Registration Form Handling
 if (registrationForm) {
   registrationForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
     // Get form data
     const formData = new FormData(this);
     const data = Object.fromEntries(formData);
@@ -327,63 +325,9 @@ if (registrationForm) {
       isValid = false;
     }
 
-    if (isValid) {
-      // Show loading state
-      const submitBtn = this.querySelector('.submit-btn');
-      const originalText = submitBtn.innerHTML;
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Registration...';
+    if (!isValid) {
+      e.preventDefault(); // Only prevent submission if validation fails
 
-      // Simulate form submission
-      setTimeout(() => {
-        // Show success message
-        registrationMessage.className = 'form-message success';
-        registrationMessage.textContent = 'Registration submitted successfully! Our admissions team will contact you within 24 hours to complete your enrollment.';
-        registrationMessage.style.display = 'block';
-
-        // Reset form
-        this.reset();
-        document.querySelectorAll('.registration-form .form-group').forEach(group => {
-          group.classList.remove('error', 'success');
-        });
-
-        // Restore button
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
-
-        // Auto-close modal after success
-        setTimeout(() => {
-          closeRegistrationModal();
-
-          // Show a brief success notification
-          const notification = document.createElement('div');
-          notification.innerHTML = `
-            <div style="
-              position: fixed;
-              top: 20px;
-              right: 20px;
-              background: linear-gradient(135deg, #4caf50, #45a049);
-              color: white;
-              padding: 1rem 2rem;
-              border-radius: 10px;
-              box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-              z-index: 10001;
-              animation: slideInRight 0.5s ease-out;
-            ">
-              <i class="fas fa-check-circle"></i> Registration submitted successfully!
-            </div>
-          `;
-          document.body.appendChild(notification);
-
-          setTimeout(() => {
-            notification.remove();
-          }, 5000);
-        }, 3000);
-
-        // Log form data (replace with actual submission)
-        console.log('Registration submitted:', data);
-      }, 2000);
-    } else {
       // Show error message
       registrationMessage.className = 'form-message error';
       registrationMessage.textContent = 'Please fill in all required fields correctly.';
@@ -393,6 +337,12 @@ if (registrationForm) {
       setTimeout(() => {
         registrationMessage.style.display = 'none';
       }, 3000);
+    } else {
+      // Form is valid, let it submit naturally to Formspree
+      // Show loading state
+      const submitBtn = this.querySelector('.submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Registration...';
     }
   });
 
