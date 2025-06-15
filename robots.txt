@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.apexacademy.tech/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Allow important files
+Allow: /index.html
+Allow: /ai-engineer-details.html
+Allow: /it-specialist-details.html
+Allow: /logo.png
+Allow: /snap.png
+Allow: /*.css
+Allow: /*.js 
