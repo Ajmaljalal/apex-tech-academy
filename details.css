@@ -187,68 +187,159 @@
   background: var(--secondary-bg);
 }
 
-.curriculum-modules {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+.curriculum-intro {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 3rem;
+  opacity: 0.9;
 }
 
-.module {
+.curriculum-card {
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 20px;
+  border-radius: 25px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 1000px;
+  margin: 0 auto;
   transition: all 0.3s ease;
 }
 
-.module:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+.curriculum-card:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-.module-header {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.curriculum-phase {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
-.module-header h3 {
-  font-size: 1.3rem;
-  color: var(--accent-yellow);
-}
-
-.module-duration {
-  font-size: 0.9rem;
-  color: var(--text-gray);
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.3rem 1rem;
-  border-radius: 20px;
-}
-
-.module-content {
-  padding: 1.5rem;
-  list-style: none;
-}
-
-.module-content li {
-  padding: 0.8rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.module-content li:last-child {
+.curriculum-phase:last-of-type {
   border-bottom: none;
 }
 
-.module-content li::before {
+.curriculum-phase:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.phase-header {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.phase-number {
+  font-family: var(--font-tech);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent-orange);
+  background: rgba(255, 107, 53, 0.1);
+  border: 2px solid var(--accent-orange);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.phase-info h3 {
+  font-family: var(--font-tech);
+  font-size: 2rem;
+  color: var(--accent-yellow);
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.phase-duration {
+  font-size: 1rem;
+  color: var(--text-gray);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.phase-content {
+  padding: 1.5rem 2rem 2rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.skills-group {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skills-group h4 {
+  font-size: 1.2rem;
+  color: var(--accent-orange);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skills-group h4::before {
+  content: '●';
+  color: var(--accent-yellow);
+  font-size: 0.8rem;
+}
+
+.skills-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skills-group li {
+  padding: 0.6rem 0;
+  color: var(--text-light);
+  position: relative;
+  padding-left: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.skills-group li:last-child {
+  border-bottom: none;
+}
+
+.skills-group li::before {
   content: '▸';
   position: absolute;
   left: 0;
-  color: var(--accent-orange);
+  color: var(--accent-yellow);
+  font-size: 0.8rem;
+}
+
+.curriculum-summary {
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+  text-align: center;
+  border-top: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+.curriculum-summary h3 {
+  font-family: var(--font-tech);
+  font-size: 1.8rem;
+  color: var(--accent-yellow);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.curriculum-summary p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Schedule Section */
@@ -545,22 +636,61 @@
     margin-bottom: 2rem;
   }
 
-  /* Curriculum modules */
-  .curriculum-modules {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  /* Curriculum card */
+  .curriculum-intro {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 
-  .module-header {
+  .curriculum-card {
+    margin: 0 1rem;
+  }
+
+  .phase-header {
+    padding: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .phase-number {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+  }
+
+  .phase-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .phase-duration {
+    font-size: 0.9rem;
+  }
+
+  .phase-content {
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skills-group {
     padding: 1rem;
   }
 
-  .module-header h3 {
+  .skills-group h4 {
     font-size: 1.1rem;
   }
 
-  .module-content {
-    padding: 1rem;
+  .curriculum-summary {
+    padding: 1.5rem;
+  }
+
+  .curriculum-summary h3 {
+    font-size: 1.4rem;
+  }
+
+  .curriculum-summary p {
+    font-size: 1rem;
   }
 
   /* Schedule cards */
@@ -676,12 +806,50 @@
     font-size: 1.2rem;
   }
 
-  .module-header h3 {
+  .curriculum-card {
+    margin: 0 0.5rem;
+  }
+
+  .phase-header {
+    padding: 1rem;
+  }
+
+  .phase-number {
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .phase-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .phase-duration {
+    font-size: 0.8rem;
+  }
+
+  .phase-content {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+
+  .skills-group {
+    padding: 0.8rem;
+  }
+
+  .skills-group h4 {
     font-size: 1rem;
   }
 
-  .module-duration {
-    font-size: 0.8rem;
+  .curriculum-summary {
+    padding: 1rem;
+  }
+
+  .curriculum-summary h3 {
+    font-size: 1.2rem;
+  }
+
+  .curriculum-summary p {
+    font-size: 0.9rem;
   }
 
   .cta-section h2 {
