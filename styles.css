@@ -483,6 +483,7 @@ body {
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 900;
   line-height: 1.1;
+  margin-top: 3.5rem;
   margin-bottom: 1rem;
 }
 
@@ -500,8 +501,63 @@ body {
 .hero-subtitle {
   font-size: 1.5rem;
   color: var(--text-light);
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   letter-spacing: 2px;
+}
+
+.hero-tracks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+}
+
+.track-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.track-option:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-orange);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+}
+
+.track-name {
+  font-family: var(--font-tech);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-yellow);
+  letter-spacing: 1px;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.track-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.track-divider {
+  font-size: 1.2rem;
+  color: var(--text-gray);
+  font-weight: 300;
+  font-style: italic;
 }
 
 .hero-features {
@@ -510,7 +566,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 0.8rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   padding: 0 2rem;
 }
 
@@ -582,7 +638,7 @@ body {
 .hero-location {
   font-size: 1.2rem;
   color: var(--text-light);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1926,6 +1982,32 @@ body {
     margin-bottom: 1.5rem;
   }
 
+  .hero-tracks {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+
+  .track-option {
+    padding: 0.8rem 1.2rem;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .track-name {
+    font-size: 1.1rem;
+  }
+
+  .track-label {
+    font-size: 0.8rem;
+  }
+
+  .track-divider {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
   .hero-location {
     font-size: 1rem;
     margin-bottom: 1.5rem;
@@ -2096,6 +2178,30 @@ body {
   .hero-subtitle {
     font-size: 1rem;
     margin-bottom: 1rem;
+  }
+
+  .hero-tracks {
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .track-option {
+    padding: 0.7rem 1rem;
+    max-width: 250px;
+  }
+
+  .track-name {
+    font-size: 1rem;
+  }
+
+  .track-label {
+    font-size: 0.75rem;
+  }
+
+  .track-divider {
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
   }
 
   .section-title {

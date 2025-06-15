@@ -1012,4 +1012,70 @@ if (registrationForm) {
       e.target.value = value;
     });
   }
-} 
+}
+
+// Track Navigation Enhancement
+document.addEventListener('DOMContentLoaded', function () {
+  const trackOptions = document.querySelectorAll('.hero-tracks .track-option');
+
+  trackOptions.forEach(trackOption => {
+    trackOption.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const trackType = this.getAttribute('data-track');
+      const programsSection = document.getElementById('programs');
+
+      if (programsSection) {
+        // Smooth scroll to programs section
+        programsSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+        // Highlight the specific track after scrolling
+        setTimeout(() => {
+          const trackContainer = trackType === 'ai-engineer'
+            ? document.querySelector('.ai-track')
+            : document.querySelector('.it-track');
+
+          if (trackContainer) {
+            // Remove any existing highlights
+            document.querySelectorAll('.track-container').forEach(container => {
+              container.classList.remove('track-highlight');
+            });
+
+            // Add highlight to the selected track
+            trackContainer.classList.add('track-highlight');
+
+            // Remove highlight after 3 seconds
+            setTimeout(() => {
+              trackContainer.classList.remove('track-highlight');
+            }, 3000);
+          }
+        }, 800); // Wait for scroll to complete
+      }
+    });
+  });
+});
+
+// Add highlight CSS styles dynamically
+const trackHighlightStyle = document.createElement('style');
+trackHighlightStyle.textContent = `
+  .track-highlight {
+    animation: track-highlight-pulse 3s ease-in-out;
+    border: 2px solid var(--accent-orange) !important;
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.4) !important;
+  }
+  
+  @keyframes track-highlight-pulse {
+    0%, 100% {
+      transform: translateY(-5px) scale(1);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 107, 53, 0.4);
+    }
+    50% {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 107, 53, 0.6);
+    }
+  }
+`;
+document.head.appendChild(trackHighlightStyle);
