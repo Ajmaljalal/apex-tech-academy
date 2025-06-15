@@ -1572,6 +1572,12 @@ body {
     padding: 0 1rem;
   }
 
+  /* Make logo smaller on mobile */
+  .logo img {
+    width: 45px !important;
+    height: 45px !important;
+  }
+
   .nav-menu {
     position: fixed;
     left: -100%;
@@ -1716,6 +1722,12 @@ body {
 
   .nav-container {
     padding: 0 0.75rem;
+  }
+
+  /* Make logo even smaller on very small screens */
+  .logo img {
+    width: 35px !important;
+    height: 35px !important;
   }
 
   .hero-title {
