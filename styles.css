@@ -518,39 +518,144 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  width: 250px;
+  height: 120px;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.03) 100%);
+  border: 2px solid transparent;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(15px);
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: track-glow 4s ease-in-out infinite;
+}
+
+.track-option::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      rgba(255, 107, 53, 0.1) 0%,
+      rgba(255, 215, 0, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 18px;
+}
+
+.track-option::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg,
+      var(--accent-orange) 0%,
+      var(--accent-yellow) 50%,
+      var(--accent-orange) 100%);
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .track-option:hover {
-  transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--accent-orange);
-  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+  transform: translateY(-8px) scale(1.02);
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.08) 100%);
+  box-shadow:
+    0 20px 60px rgba(255, 107, 53, 0.3),
+    0 15px 40px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
+
+.track-option:hover::before {
+  opacity: 1;
+}
+
+.track-option:hover::after {
+  opacity: 1;
+}
+
+.track-option:active {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Animated glow effect for track options */
+@keyframes track-glow {
+
+  0%,
+  100% {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  50% {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      0 0 20px rgba(255, 107, 53, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+}
+
+
 
 .track-name {
   font-family: var(--font-tech);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--accent-yellow);
-  letter-spacing: 1px;
-  margin-bottom: 0.3rem;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  font-size: 1.3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg,
+      var(--accent-yellow) 0%,
+      var(--accent-orange) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
+  text-shadow: none;
+  transition: all 0.3s ease;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.track-option:hover .track-name {
+  transform: translateY(-2px);
+  filter: brightness(1.2);
 }
 
 .track-label {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-light);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.track-option:hover .track-label {
+  color: var(--text-white);
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
 .track-divider {
@@ -1991,17 +2096,21 @@ body {
   }
 
   .track-option {
-    padding: 0.8rem 1.2rem;
-    width: 100%;
-    max-width: 280px;
+    padding: 1.2rem 1.5rem;
+    width: 280px;
+    height: 100px;
+    margin: 0 auto;
   }
 
   .track-name {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    line-height: 1.1;
   }
 
   .track-label {
     font-size: 0.8rem;
+    letter-spacing: 2px;
   }
 
   .track-divider {
@@ -2188,16 +2297,21 @@ body {
   }
 
   .track-option {
-    padding: 0.7rem 1rem;
-    max-width: 250px;
+    padding: 1rem 1.2rem;
+    width: 260px;
+    height: 90px;
+    margin: 0 auto;
   }
 
   .track-name {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
   }
 
   .track-label {
     font-size: 0.75rem;
+    letter-spacing: 1.5px;
   }
 
   .track-divider {
