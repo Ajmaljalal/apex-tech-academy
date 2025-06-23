@@ -475,9 +475,30 @@
   text-shadow: 0 0 10px rgba(26, 58, 94, 0.5);
 }
 
+.cohort-deadline {
+  font-family: var(--font-tech);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 1rem;
+  text-shadow:
+    0 0 10px rgba(0, 0, 0, 0.8),
+    0 2px 4px rgba(0, 0, 0, 0.6);
+  padding: 0.7rem 1.2rem;
+  background: linear-gradient(135deg,
+      rgba(220, 38, 127, 0.9) 0%,
+      rgba(255, 107, 53, 0.9) 100%);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 4px 15px rgba(220, 38, 127, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
 .cohort-date {
   font-family: var(--font-tech);
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 900;
   color: var(--accent-yellow);
   margin-bottom: 1rem;
@@ -871,6 +892,11 @@
 
   .cohort-card h3 {
     font-size: 1.2rem;
+  }
+
+  .cohort-deadline {
+    font-size: 1rem;
+    padding: 0.5rem 0.9rem;
   }
 
   .cohort-date {
