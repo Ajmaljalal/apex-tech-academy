@@ -9,7 +9,7 @@ Crawl-delay: 1
 
 # Allow important files
 Allow: /index.html
-Allow: /ai-engineer-details.html
+Allow: /software-engineer-details.html
 Allow: /it-specialist-details.html
 Allow: /logo.png
 Allow: /snap.png

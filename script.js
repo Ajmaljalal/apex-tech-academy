@@ -856,11 +856,11 @@ function openRegistrationModal(program = '') {
 
     // Set the form action based on the program
     const form = document.getElementById('registrationForm');
-    if (program === 'ai-engineer') {
+    if (program === 'ai-software-engineer') {
       form.action = 'https://formspree.io/f/myzjjdvb';
       // Update modal title
       const modalTitle = document.querySelector('.modal-title');
-      modalTitle.textContent = 'Register for AI Engineer Bootcamp';
+      modalTitle.textContent = 'Register for Software Engineer Bootcamp';
     } else if (program === 'it-specialist') {
       form.action = 'https://formspree.io/f/meokkldn';
       // Update modal title
@@ -1034,7 +1034,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Highlight the specific track after scrolling
         setTimeout(() => {
-          const trackContainer = trackType === 'ai-engineer'
+          const trackContainer = trackType === 'ai-track'
             ? document.querySelector('.ai-track')
             : document.querySelector('.it-track');
 

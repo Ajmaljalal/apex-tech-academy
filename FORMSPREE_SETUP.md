@@ -10,7 +10,7 @@ Your forms are now properly connected to Formspree with the following setup:
    - Used in: `index.html` contact section
    
 2. **AI Engineer Registration**: `https://formspree.io/f/myzjjdvb`
-   - Used in: `ai-engineer-details.html` + dynamic modal in `index.html`
+   - Used in: `software-engineer-details.html` + dynamic modal in `index.html`
    
 3. **IT Specialist Registration**: `https://formspree.io/f/meokkldn`
    - Used in: `it-specialist-details.html` + dynamic modal in `index.html`
@@ -24,7 +24,7 @@ Your forms are now properly connected to Formspree with the following setup:
   - IT Specialist → submits to IT Specialist endpoint
 
 #### Detail Pages:
-- **ai-engineer-details.html**: Registration form submits to AI Engineer endpoint
+- **software-engineer-details.html**: Registration form submits to Software Engineer endpoint
 - **it-specialist-details.html**: Registration form submits to IT Specialist endpoint
 
 ### What You Get:
