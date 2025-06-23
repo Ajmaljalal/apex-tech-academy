@@ -798,8 +798,8 @@ body {
   position: relative;
   font-weight: 900;
   text-transform: uppercase;
-  padding-bottom: 0.5rem;
-  font-size: 1.1em;
+  padding-bottom: 0.8rem;
+  font-size: .6em;
   /* Default solid white color for maximum readability */
   color: var(--text-white);
   text-shadow:
@@ -809,10 +809,11 @@ body {
 }
 
 /* Tech-style underline effect */
-.dotted-text::after {
+/* .dotted-text::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  display: block;
+  bottom: 10;
   left: 0;
   width: 100%;
   height: 2px;
@@ -823,7 +824,7 @@ body {
       transparent);
   opacity: 0.8;
   animation: scan-line 3s ease-in-out infinite;
-}
+} */
 
 @keyframes scan-line {
 
@@ -844,7 +845,7 @@ body {
   color: var(--accent-orange);
   letter-spacing: 8px;
   text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   /* 75% of parent 2.5rem */
 }
 
