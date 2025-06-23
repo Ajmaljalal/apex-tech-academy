@@ -122,6 +122,45 @@
   color: var(--accent-yellow);
 }
 
+/* Address styling for detail pages */
+.info-value .address-link {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.3rem 0.5rem;
+  border-radius: 8px;
+  display: inline-block;
+  line-height: 1.3;
+}
+
+.info-value .address-link:hover {
+  color: var(--accent-orange);
+  background: rgba(255, 107, 53, 0.1);
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
+}
+
+/* Address indicators for detail pages */
+.info-value .address-icon {
+  font-size: 0.7rem;
+  margin-left: 0.4rem;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+
+
+.info-value .address-link:hover .address-icon {
+  opacity: 1;
+  transform: translateX(2px);
+  color: var(--accent-yellow);
+}
+
+
+
 /* Overview Section */
 .overview {
   padding: 5rem 0;
