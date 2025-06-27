@@ -4,14 +4,18 @@ Allow: /
 # Sitemap location
 Sitemap: https://www.apexacademy.tech/sitemap.xml
 
-# Crawl-delay for better server performance
-Crawl-delay: 1
-
 # Allow important files
 Allow: /index.html
 Allow: /software-engineer-details.html
 Allow: /it-specialist-details.html
-Allow: /logo.png
-Allow: /snap.png
+Allow: /blog-index.html
 Allow: /*.css
-Allow: /*.js 
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.svg
+
+# Block unnecessary files
+Disallow: /FORMSPREE_SETUP.md
+Disallow: /*.md 
