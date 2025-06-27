@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- No SEO tags since this is a confirmation page -->
+    <title>Thank You | Apex Tech Academy</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SNTC9DXN3H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-SNTC9DXN3H');
+    </script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #0a0a0a;
+        font-family: 'Rajdhani', sans-serif;
+        overflow-x: hidden;
+      }
+
+      .thank-you-container {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .bg-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, rgba(255, 107, 53, 0.1) 0%, rgba(10, 10, 10, 0.8) 70%);
+        z-index: 1;
+      }
+
+      .particles-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
+
+      .thank-you-card {
+        background: rgba(8, 8, 8, 0.98);
+        backdrop-filter: blur(20px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 107, 53, 0.4);
+        padding: 50px 40px;
+        text-align: center;
+        max-width: 650px;
+        width: 100%;
+        position: relative;
+        z-index: 10;
+        box-shadow:
+          0 0 50px rgba(255, 107, 53, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      }
+
+      .thank-you-card::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #FF6B35, #F7931E, #FF6B35, #F7931E);
+        background-size: 400% 400%;
+        border-radius: 17px;
+        z-index: -1;
+        animation: gradientShift 4s ease infinite;
+        opacity: 0.7;
+      }
+
+      @keyframes gradientShift {
+
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .success-icon {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 30px;
+      }
+
+      .success-icon i {
+        font-size: 4rem;
+        color: #FF6B35;
+        animation: pulse 2s ease-in-out infinite;
+        text-shadow: 0 0 30px rgba(255, 107, 53, 0.6);
+      }
+
+      .success-icon::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120px;
+        height: 120px;
+        border: 2px solid rgba(255, 107, 53, 0.3);
+        border-radius: 50%;
+        animation: rotate 3s linear infinite;
+      }
+
+      .success-icon::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 140px;
+        height: 140px;
+        border: 1px solid rgba(255, 107, 53, 0.2);
+        border-radius: 50%;
+        animation: rotate 5s linear infinite reverse;
+      }
+
+      @keyframes pulse {
+
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      @keyframes rotate {
+        from {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      .thank-you-title {
+        font-family: 'Orbitron', monospace;
+        font-size: 2.8rem;
+        font-weight: 900;
+        color: #FF6B35;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+        line-height: 1.2;
+      }
+
+      .thank-you-message {
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.6;
+        color: #ffffff;
+        margin-bottom: 40px;
+      }
+
+      .thank-you-message strong {
+        color: #FF6B35;
+        font-weight: 700;
+      }
+
+      .thank-you-details {
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 12px;
+        padding: 30px;
+        margin: 40px 0;
+        border: 1px solid rgba(255, 107, 53, 0.4);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .thank-you-details::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+        animation: shimmer 3s ease-in-out infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+
+        100% {
+          left: 100%;
+        }
+      }
+
+      .thank-you-details h3 {
+        color: #FF6B35;
+        margin-bottom: 25px;
+        font-family: 'Orbitron', monospace;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+      }
+
+      .detail-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+        font-size: 1.2rem;
+        color: #f5f5f5;
+        font-weight: 500;
+      }
+
+      .detail-item i {
+        color: #FF6B35;
+        margin-right: 15px;
+        width: 25px;
+        text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+      }
+
+      .detail-item a {
+        color: #FF6B35;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .detail-item a:hover {
+        text-shadow: 0 0 10px rgba(255, 107, 53, 0.8);
+        transform: translateX(3px);
+      }
+
+      .action-buttons {
+        margin-top: 50px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 18px 35px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-family: 'Rajdhani', sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      .btn-primary {
+        background: linear-gradient(45deg, #FF6B35, #F7931E);
+        color: white;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: #FF6B35;
+        border: 2px solid #FF6B35;
+        box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 107, 53, 0.1);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+      }
+
+      .footer-note {
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 107, 53, 0.3);
+        color: #e0e0e0;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+
+      .footer-note a {
+        color: #FF6B35;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .footer-note a:hover {
+        text-shadow: 0 0 8px rgba(255, 107, 53, 0.8);
+      }
+
+      @media (max-width: 768px) {
+        .thank-you-card {
+          padding: 40px 25px;
+          margin: 20px;
+        }
+
+        .thank-you-title {
+          font-size: 2.2rem;
+        }
+
+        .thank-you-message {
+          font-size: 1.2rem;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn {
+          width: 100%;
+          max-width: 280px;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="thank-you-container">
+      <div class="bg-animation"></div>
+      <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+      <div class="thank-you-card">
+        <div class="success-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+
+        <!-- Registration Thank You Message -->
+        <div id="registrationMessage" style="display: none;">
+          <h1 class="thank-you-title">Registration Successful!</h1>
+          <div class="thank-you-message">
+            <p><strong>Congratulations!</strong> Your registration has been successfully submitted. You're one step
+              closer to transforming your career with Apex Tech Academy.</p>
+            <p>Our admissions team will review your application and contact you within <strong>24-48 hours</strong> to
+              discuss next steps and answer any questions you may have.</p>
+          </div>
+
+          <div class="thank-you-details">
+            <h3>What Happens Next?</h3>
+            <div class="detail-item">
+              <i class="fas fa-phone"></i>
+              <span>Admissions call within 24-48 hours</span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-calendar-check"></i>
+              <span>Program start date: September 1st, 2025</span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-users"></i>
+              <span>Limited seats available - early registration preferred</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Thank You Message -->
+        <div id="contactMessage" style="display: none;">
+          <h1 class="thank-you-title">Message Received!</h1>
+          <div class="thank-you-message">
+            <p><strong>Thank you for reaching out!</strong> Your message has been successfully sent to our team.</p>
+            <p>We appreciate your interest in Apex Tech Academy and will get back to you within <strong>24
+                hours</strong> with the information you requested.</p>
+          </div>
+
+          <div class="thank-you-details">
+            <h3>Contact Information</h3>
+            <div class="detail-item">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:info@apexacademy.tech">info@apexacademy.tech</a>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+12792684600">(279) 268-4600</a>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>1750 Howe Ave Suite 300, Sacramento CA 95825</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <a href="index.html" class="btn btn-primary">
+            <i class="fas fa-home"></i> Return to Homepage
+          </a>
+          <a href="index.html#programs" class="btn btn-secondary">
+            <i class="fas fa-graduation-cap"></i> View Programs
+          </a>
+        </div>
+
+        <div class="footer-note">
+          <p>Have urgent questions? Call us directly at <a href="tel:+12792684600">(279)
+              268-4600</a></p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Particle Animation System
+      class ParticleNetwork {
+        constructor(canvas) {
+          this.canvas = canvas;
+          this.ctx = canvas.getContext('2d');
+          this.particles = [];
+          this.particleCount = 60;
+
+          this.init();
+        }
+
+        init() {
+          this.resize();
+          this.createParticles();
+          this.animate();
+          window.addEventListener('resize', () => this.resize());
+        }
+
+        resize() {
+          this.canvas.width = window.innerWidth;
+          this.canvas.height = window.innerHeight;
+        }
+
+        createParticles() {
+          this.particles = [];
+          for (let i = 0; i < this.particleCount; i++) {
+            this.particles.push({
+              x: Math.random() * this.canvas.width,
+              y: Math.random() * this.canvas.height,
+              vx: (Math.random() - 0.5) * 0.8,
+              vy: (Math.random() - 0.5) * 0.8,
+              radius: Math.random() * 2 + 1,
+              opacity: Math.random() * 0.6 + 0.2,
+              hue: Math.random() * 40 + 15
+            });
+          }
+        }
+
+        updateParticles() {
+          this.particles.forEach(particle => {
+            particle.x += particle.vx;
+            particle.y += particle.vy;
+
+            if (particle.x < 0) particle.x = this.canvas.width;
+            if (particle.x > this.canvas.width) particle.x = 0;
+            if (particle.y < 0) particle.y = this.canvas.height;
+            if (particle.y > this.canvas.height) particle.y = 0;
+
+            particle.opacity += Math.sin(Date.now() * 0.002 + particle.x * 0.01) * 0.01;
+            particle.opacity = Math.max(0.1, Math.min(0.8, particle.opacity));
+          });
+        }
+
+        drawParticles() {
+          this.particles.forEach(particle => {
+            this.ctx.beginPath();
+            this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+            this.ctx.fillStyle = `hsla(${particle.hue}, 100%, 60%, ${particle.opacity})`;
+            this.ctx.fill();
+
+            this.ctx.beginPath();
+            this.ctx.arc(particle.x, particle.y, particle.radius * 2.5, 0, Math.PI * 2);
+            this.ctx.fillStyle = `hsla(${particle.hue}, 100%, 60%, ${particle.opacity * 0.1})`;
+            this.ctx.fill();
+          });
+        }
+
+        connectParticles() {
+          for (let i = 0; i < this.particles.length; i++) {
+            for (let j = i + 1; j < this.particles.length; j++) {
+              const dx = this.particles[i].x - this.particles[j].x;
+              const dy = this.particles[i].y - this.particles[j].y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < 120) {
+                const opacity = (1 - distance / 120) * 0.3;
+                this.ctx.beginPath();
+                this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+                this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+                this.ctx.strokeStyle = `rgba(255, 107, 53, ${opacity})`;
+                this.ctx.lineWidth = 1;
+                this.ctx.stroke();
+              }
+            }
+          }
+        }
+
+        animate() {
+          this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+          this.updateParticles();
+          this.connectParticles();
+          this.drawParticles();
+          requestAnimationFrame(() => this.animate());
+        }
+      }
+
+      // Function to get URL parameters
+      function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        const results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      // Initialize everything when page loads
+      window.addEventListener('load', function () {
+        // Initialize particle animation
+        const canvas = document.getElementById('particlesCanvas');
+        if (canvas) {
+          new ParticleNetwork(canvas);
+        }
+
+        // Show appropriate message based on URL parameter
+        const type = getUrlParameter('type');
+
+        if (type === 'registration') {
+          document.getElementById('registrationMessage').style.display = 'block';
+          // Track registration completion
+          gtag('event', 'registration_complete', {
+            event_category: 'engagement',
+            event_label: 'program_registration'
+          });
+        } else if (type === 'contact') {
+          document.getElementById('contactMessage').style.display = 'block';
+          // Track contact form completion
+          gtag('event', 'contact_form_complete', {
+            event_category: 'engagement',
+            event_label: 'contact_inquiry'
+          });
+        } else {
+          // Default to contact message if no type specified
+          document.getElementById('contactMessage').style.display = 'block';
+        }
+      });
+    </script>
+  </body>
+
+</html>
