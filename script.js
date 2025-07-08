@@ -723,7 +723,7 @@ if (contactForm) {
 
     // Basic validation
     let isValid = true;
-    const requiredFields = ['firstName', 'lastName', 'email', 'program'];
+    const requiredFields = ['firstName', 'lastName', 'email', 'program', 'format'];
 
     // Clear previous validation states
     document.querySelectorAll('.form-group').forEach(group => {
@@ -945,7 +945,7 @@ if (registrationForm) {
 
     // Basic validation
     let isValid = true;
-    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'program', 'age', 'education'];
+    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'program', 'age', 'education', 'experience', 'format'];
 
     // Clear previous validation states
     document.querySelectorAll('.registration-form .form-group').forEach(group => {

@@ -315,7 +315,7 @@ if (registrationForm) {
 
     // Basic validation
     let isValid = true;
-    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'program', 'age', 'education'];
+    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'program', 'age', 'education', 'experience', 'format'];
 
     // Clear previous validation states
     document.querySelectorAll('.registration-form .form-group').forEach(group => {
