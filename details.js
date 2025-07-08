@@ -218,10 +218,34 @@ function openRegistrationModal(program = '') {
     const programSelect = document.getElementById('regProgram');
     programSelect.value = program;
 
+    // Lock the program dropdown when opened from specific program track
+    programSelect.disabled = true;
+    programSelect.style.opacity = '0.7';
+    programSelect.style.cursor = 'not-allowed';
+
+    // Add hidden input to ensure program value is sent even when dropdown is disabled
+    const form = document.getElementById('registrationForm');
+    let hiddenProgramInput = document.getElementById('programHidden');
+    if (!hiddenProgramInput) {
+      hiddenProgramInput = document.createElement('input');
+      hiddenProgramInput.type = 'hidden';
+      hiddenProgramInput.name = 'program';
+      hiddenProgramInput.id = 'programHidden';
+      form.appendChild(hiddenProgramInput);
+    }
+    hiddenProgramInput.value = program;
+
+    // Set the form action based on the program
+    if (program === 'ai-software-engineer') {
+      form.action = 'https://formspree.io/f/myzjjdvb';
+    } else if (program === 'it-specialist') {
+      form.action = 'https://formspree.io/f/meokkldn';
+    }
+
     // Update modal title based on program
     const modalTitle = document.querySelector('.modal-title');
-    if (program === 'ai-engineer') {
-      modalTitle.textContent = 'Register for AI Engineer Bootcamp';
+    if (program === 'ai-software-engineer') {
+      modalTitle.textContent = 'Register for Software Engineer Bootcamp';
     } else if (program === 'it-specialist') {
       modalTitle.textContent = 'Register for IT Specialist Bootcamp';
     }
@@ -247,8 +271,18 @@ function closeRegistrationModal() {
     group.classList.remove('error', 'success');
   });
 
-  // Reset modal title
+  // Reset modal title and unlock program dropdown
   document.querySelector('.modal-title').textContent = 'Register for Program';
+  const programSelect = document.getElementById('regProgram');
+  programSelect.disabled = false;
+  programSelect.style.opacity = '';
+  programSelect.style.cursor = '';
+
+  // Remove hidden program input if it exists
+  const hiddenProgramInput = document.getElementById('programHidden');
+  if (hiddenProgramInput) {
+    hiddenProgramInput.remove();
+  }
 }
 
 // Close modal when X is clicked
