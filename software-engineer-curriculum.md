@@ -1,145 +1,230 @@
-# 💡 AI-Empowered Software Engineer Bootcamp Curriculum (Beginner Friendly)
+# 💡 AI-Empowered Software Engineer Bootcamp Curriculum
 
 **Duration:** 7 Months  
 **Schedule:** 4 Days/Week, 2 Hours/Day (~224 Hours Total)  
-**Target Audience:** Absolute beginners, no prior programming experience  
-**Focus:** Modern software engineering with AI-powered tools (not AI engineering)
+**Audience:** Absolute beginners—no programming experience required  
+**Focus:** Modern web/software engineering *empowered* by AI coding tools
 
 ---
 
-## 📅 Bootcamp Overview
+## Table of Contents
 
-| Phase | Content | Duration | Sessions | Hours |
-|-------|---------|----------|----------|-------|
-| **Phase 1** | Web Foundations (HTML/CSS) | 4 weeks | 16 | 32 hrs |
-| **Phase 2** | Web Programming (JS/TS/React/Node) | 13 weeks | 52 | 104 hrs |
-| **Phase 3** | AI-Empowered Development & Projects | 8 weeks | 32 | 64 hrs |
-| **Phase 4** | Career Launch & Intro to AI Engineering | 3 weeks | 12 | 24 hrs |
-
----
-
-## 1️⃣ Phase 1: Web Foundations (Weeks 1–4 • 32 Hours)
-
-### HTML & CSS Mastery
-- Semantic markup and accessibility
-- Responsive design with Flexbox & Grid
-- Modern CSS techniques and animations
-
-### Development Environment
-- VS Code setup and Git version control
-- Project structure and file organization
-- Portfolio and landing page projects
-
-### 🚀 Project: Personal Portfolio Website
-- Build a responsive portfolio website from scratch
-- Implement modern CSS techniques and animations
-- Deploy using Git and hosting platforms
+1. Bootcamp Philosophy & Outcomes  
+2. Program Structure & Weekly Calendar  
+3. Detailed Curriculum  
+   - Phase 1: Web Foundations  
+   - Phase 2: Web Programming  
+   - Phase 3: AI-Empowered Development  
+   - Phase 4: Career Launch & Intro to AI Engineering  
+4. Project-Based Learning Journey  
+5. Delivery, Support, & Career Services  
+6. Skills Gained & Next Steps
 
 ---
 
-## 2️⃣ Phase 2: Web Programming (Weeks 5–17 • 104 Hours)
+## 1. Bootcamp Philosophy & Outcomes
 
-### JavaScript & TypeScript
-- Core programming concepts and ES6+ features
-- DOM manipulation and event handling
-- Async programming with Promises and async/await
-- TypeScript for type-safe development
-
-### Modern Web Development
-- React with hooks and component architecture
-- Node.js and Express for backend APIs
-- RESTful API design and CRUD operations
-- Full-stack application development
-
-### 🚀 Project: Task Management App
-- Build a full-stack task management application
-- React frontend with user authentication
-- Node.js/Express backend with database integration
-- Implement CRUD operations and real-time updates
+This bootcamp is designed to help absolute beginners break into software engineering—**supercharged by the latest AI-powered tools**. You’ll learn the fundamentals of modern web development, then progress to building powerful real-world applications at record speed, using tools like Copilot, Cursor, Windsurf, Claude, and LLM APIs. By graduation, you’ll be *job-ready* with a standout portfolio.
 
 ---
 
-## 3️⃣ Phase 3: AI-Empowered Development & Projects (Weeks 18–25 • 64 Hours)
+## 2. Program Structure & Weekly Calendar
 
-### AI Coding Tools in Practice
-- Cursor: Advanced autocomplete and agent workflows
-- Windsurf: Cascade technology and collaborative AI coding
-- GitHub Copilot: AI pair programming techniques
-- Claude Code: Terminal-based AI development assistant
-
-### Prompt Engineering & LLM APIs (Exposure)
-- Introduction to prompt design and optimization
-- Using OpenAI, Claude, and other LLM APIs (as tools, not as builders)
-- AI-assisted code generation and refactoring
-- Context-aware prompting for coding tasks
-
-### Modern Development Workflows
-- 10x faster development using AI assistance
-- AI-powered code review and debugging
-- Automated testing and deployment with AI tools
-- Building full-stack applications with AI acceleration
-
-### 🚀 Project: AI-Enhanced E-commerce Platform
-- Build an e-commerce platform using AI coding tools
-- Implement AI-powered search and recommendations
-- Use Cursor/Windsurf for accelerated development
-- Integrate LLM APIs for intelligent customer support (as a feature, not a core focus)
+| Phase      | Weeks   | Key Focus                                 | Hours  |
+|------------|---------|-------------------------------------------|--------|
+| Phase 1    | 1–4     | Web Foundations: HTML & CSS               | 32     |
+| Phase 2    | 5–17    | Web Programming: JS, TS, React, Node      | 104    |
+| Phase 3    | 18–25   | AI-Empowered Dev & Real Projects          | 64     |
+| Phase 4    | 26–28   | Career Launch & Intro to AI Engineering   | 24     |
+| **TOTAL**  | **28**  | **Full-Stack, AI-Empowered Web Dev**      | **224**|
 
 ---
 
-## 4️⃣ Phase 4: Career Launch & Intro to AI Engineering (Weeks 26–28 • 24 Hours)
+## 3. Detailed Curriculum
 
-### Career Coaching & Professional Development (Ongoing)
-- Resume optimization for AI-empowered developer roles
-- Portfolio development with AI-enhanced projects
-- Interview preparation and technical assessments
-- LinkedIn optimization and professional networking
-- Job search support and placement assistance
-- Mock interviews and technical challenge preparation
-- Industry connections and networking opportunities
+### **Phase 1: Web Foundations (Weeks 1–4, 32 Hours)**
 
-### 🚀 Capstone Project: Custom AI-Empowered Application
-- Design and build your own software application using AI tools
-- Showcase mastery of AI-powered development workflows
-- Present to industry professionals and potential employers
-- Deploy and add to professional portfolio with case study
+**Objective:** Build a rock-solid understanding of how the web works and how to create beautiful, modern web pages.
 
-### Intro to AI Engineering (Final Week)
-- Inspirational overview: What is AI Engineering?
-- Career paths and opportunities in AI
-- Demo of advanced AI engineering tools and possibilities
-- How to keep learning: resources and next steps
+#### Topics & Modules
 
----
+- **HTML Essentials**
+  - Document structure, tags, semantic HTML, accessibility basics
+- **CSS Mastery**
+  - Selectors, colors, typography, spacing
+  - Responsive layouts with Flexbox & Grid
+  - Animations & transitions, custom themes
+- **Development Tools**
+  - Setting up VS Code, extensions
+  - Introduction to Git & GitHub (version control basics)
+  - File and folder organization best practices
+- **Portfolio Site Project**
+  - Wireframing your personal website
+  - Building, styling, and deploying your first site
+  - Hosting options (Netlify, Vercel, GitHub Pages)
+- **Soft Skills**
+  - Navigating documentation, asking technical questions
 
-## 🏆 Project-Based Learning Journey
-
-Throughout the program, you'll build 4 progressive projects: a personal portfolio, a task management app, an AI-enhanced e-commerce platform, and your custom capstone application. Each project builds on previous skills while introducing new AI-powered development techniques using tools like Cursor, Windsurf, Copilot, and LLM APIs. Your final portfolio will showcase real-world applications that demonstrate your mastery to potential employers.
-
----
-
-## 🎓 Delivery & Support
-
-- **Live Sessions:** 4x/week × 2 hours
-- **Homework:** ~3–5 hrs/week for practice/projects
-- **Collaboration:** Pair programming, peer reviews
-- **Career Coaching:** Embedded throughout the program
-- **Capstone Showcase:** Public demo & GitHub-ready code
+**Expected Outcome:**  
+A **responsive personal portfolio website**—your first project for your resume!
 
 ---
 
-## ✅ Skills Gained
+### **Phase 2: Web Programming (Weeks 5–17, 104 Hours)**
 
+**Objective:** Learn real programming! Code interactive web apps using JavaScript, then master React and full-stack skills.
+
+#### Week-by-Week Breakdown
+
+**Weeks 5–8: JavaScript & Programming Basics**
+- Variables, data types, arrays, objects, functions
+- Control flow: loops, conditionals
+- The DOM: selecting, modifying, creating elements
+- Events: user interaction, forms, validation
+
+**Weeks 9–10: TypeScript Fundamentals**
+- Why TypeScript? Type-safety, static checking
+- Types, interfaces, basic generics
+
+**Weeks 11–13: Modern Web Development with React**
+- React concepts: components, props, state
+- Hooks (useState, useEffect)
+- Component composition, project structuring
+- Styling with CSS-in-JS, frameworks (TailwindCSS)
+
+**Weeks 14–15: Backend Essentials (Node.js & Express)**
+- Server-side programming basics
+- Building RESTful APIs
+- Connecting to databases (MongoDB or SQLite basics)
+- Authentication concepts
+
+**Weeks 16–17: Full-Stack App Integration**
+- End-to-end workflow: frontend ↔ backend
+- API consumption, error handling, deployment
+- Group project kickoff
+
+**Project:** **Task Management App**
+- Plan, build, and deploy a full-stack app
+- User authentication, database integration, CRUD
+- React frontend, Node.js/Express backend
+- Teamwork: GitHub, code reviews
+
+**Expected Outcome:**  
+You can **code real apps** from scratch, collaborate with others, and push code to production.
+
+---
+
+### **Phase 3: AI-Empowered Development & Projects (Weeks 18–25, 64 Hours)**
+
+**Objective:** Go faster, code smarter—use modern AI tools to code, refactor, test, and ship real projects like a pro.
+
+#### Modules & Tools
+
+**AI Coding Tools Deep Dive**
+- **Cursor**: Next-gen AI IDE—autocompletion, agent workflows, debugging
+- **Windsurf**: AI code collaboration, team workflows
+- **GitHub Copilot**: Practical pair programming, learning by example
+- **Claude Code**: Terminal-based code assistant
+
+**Prompt Engineering & LLM APIs (Exposure)**
+- Prompt design for code generation, refactoring, bug fixes
+- Using OpenAI, Claude, and others for development (not model building)
+- Integrating LLM APIs for smart app features (search, chatbot, summarization)
+
+**Modern Workflows & Best Practices**
+- 10x development speed with AI
+- AI-powered code review, bug fixes, and tests
+- Deploying with modern tools (Vercel, Netlify, Fly.io)
+
+**Project:** **AI-Enhanced E-Commerce Platform**
+- Team project: Build a real e-commerce app
+- Features: Product catalog, cart, checkout, search
+- AI-powered: Autocomplete search, recommendations, customer support chatbot
+- Use AI tools (Cursor/Windsurf/Copilot) throughout the dev cycle
+- Group demo: present your project
+
+**Expected Outcome:**  
+You’ll code like a pro: **leveraging AI as a development superpower.**
+
+---
+
+### **Phase 4: Career Launch & Intro to AI Engineering (Weeks 26–28, 24 Hours)**
+
+**Objective:** Get job-ready, build your network, and discover the next level: real AI engineering.
+
+#### Career Coaching & Professional Prep
+- Resume and LinkedIn optimization for “AI-empowered” roles
+- Building a standout portfolio with all your projects
+- Technical interviews, live coding, and system design practice
+- Job search strategies, networking with alumni/industry
+
+**Capstone Project:** **Custom AI-Empowered App**
+- Choose your own app idea, design and build with AI tools
+- Guidance from mentors and industry pros
+- Demo your app publicly, add a detailed case study to your portfolio
+
+**Intro to AI Engineering**
+- What is AI engineering? (demo: advanced AI tools)
+- How does AI *really* work? (inspiring overview)
+- Career paths: Software Engineer vs. AI Engineer
+- Learning roadmap for future growth
+
+**Expected Outcome:**  
+You are **career-ready**, with confidence, connections, and a polished portfolio.
+
+---
+
+## 4. Project-Based Learning Journey
+
+You will build **four real projects**:
+
+1. **Personal Portfolio Website**  
+2. **Task Management Application**  
+3. **AI-Enhanced E-Commerce Platform**  
+4. **Capstone Project: Your Custom App**
+
+Each project is designed to:
+- Reinforce core skills and introduce new concepts
+- Encourage teamwork and presentation skills
+- Create a portfolio that impresses employers and shows real, hands-on experience
+
+---
+
+## 5. Delivery, Support, & Career Services
+
+- **Live, interactive sessions:** 4×/week, 2 hours each
+- **Weekly homework & hands-on labs:** ~3–5 hours/week
+- **Peer coding, pair programming, and community support**
+- **Career coaching embedded:** Portfolio reviews, interview prep, job placement support
+- **Capstone Showcase:** Demo day with public presentations and GitHub portfolio
+
+---
+
+## 6. Skills Gained & Next Steps
+
+**Technical Skills:**
 - HTML, CSS, JavaScript, TypeScript
 - React (frontend), Node.js/Express (backend)
-- API consumption, project structuring
-- AI-powered coding tools (Cursor, Windsurf, Copilot, Claude Code)
-- Prompt engineering (exposure)
-- LLM API integration (exposure)
-- Modern software development workflows
-- Professional portfolio and job readiness
+- API consumption, database basics, full-stack workflows
+- AI-powered coding tools: Copilot, Cursor, Windsurf, Claude
+- Prompt engineering (exposure), LLM API integration (exposure)
+- Git, GitHub, project management
+
+**Professional Skills:**
+- Collaboration, communication, code reviews
+- Agile workflows, documentation, problem-solving
+- Building and presenting a professional portfolio
 
 ---
 
-> By the end of this bootcamp, students will be fully equipped to work as AI-empowered software engineers—capable of building and deploying modern web applications, leveraging the latest AI tools, and launching a tech career with confidence.
+## 🌟 By graduation, you’ll be able to:
 
+- **Design and build modern web applications from scratch**
+- **Accelerate your development workflow using top AI tools**
+- **Deploy real apps and showcase your skills to employers**
+- **Confidently pursue jobs as an AI-empowered software engineer**
+
+---
+
+# Ready to begin?  
+**Join the next cohort and launch your career in tech—with the power of AI at your fingertips.**
