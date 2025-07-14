@@ -415,7 +415,9 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  opacity: 0.4;
+  opacity: 0.25;
+  /* Add blur effect to hero canvas for all devices */
+  filter: blur(3px);
 }
 
 .wave-container {
@@ -2321,14 +2323,13 @@ body {
     display: none;
   }
 
-  /* Blur background canvas on mobile */
-  .hero-canvas,
-  #aiCanvas,
-  #itCanvas,
-  #bgCanvas {
-    filter: blur(2px);
-    opacity: 0.2;
+  /* Stronger blur background canvas on mobile */
+  .hero-canvas {
+    filter: blur(4px) !important;
+    opacity: 0.12 !important;
   }
+
+
 
   /* Contact section adjustments */
   .contact-direct {
@@ -2475,12 +2476,9 @@ body {
   }
 
   /* More aggressive blur for very small screens */
-  .hero-canvas,
-  #aiCanvas,
-  #itCanvas,
-  #bgCanvas {
-    filter: blur(3px);
-    opacity: 0.15;
+  .hero-canvas {
+    filter: blur(5px) !important;
+    opacity: 0.08 !important;
   }
 
   /* Loading screen adjustments for very small screens */
