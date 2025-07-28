@@ -122,6 +122,17 @@
   color: var(--accent-yellow);
 }
 
+.discount-note {
+  display: block;
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--accent-orange);
+  margin-top: 0.5rem;
+  line-height: 1.3;
+  opacity: 0.9;
+}
+
 /* Address styling for detail pages */
 .info-value .address-link {
   font-family: var(--font-main);
