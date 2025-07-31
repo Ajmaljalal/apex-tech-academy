@@ -301,65 +301,101 @@ function initCanvasAnimations() {
     heroNetwork.animate();
   }
 
-  // AI Canvas - Flowing Wave Pattern with Particles
-  const aiCanvas = document.getElementById('aiCanvas');
-  if (aiCanvas) {
-    const aiCtx = aiCanvas.getContext('2d');
+  // 7-Month AI Canvas - Flowing Wave Pattern with Particles
+  const ai7monthCanvas = document.getElementById('ai7monthCanvas');
+  if (ai7monthCanvas) {
+    const ai7monthCtx = ai7monthCanvas.getContext('2d');
     // Ensure canvas has proper rendering settings
-    aiCtx.imageSmoothingEnabled = false;
-    const aiNetwork = new ParticleNetwork(aiCanvas, {
+    ai7monthCtx.imageSmoothingEnabled = false;
+    const ai7monthNetwork = new ParticleNetwork(ai7monthCanvas, {
       particleCount: Math.floor(40 * mobileOptions.particleCountMultiplier),
       particleSize: 2.5,
       lineDistance: Math.floor(150 * mobileOptions.lineDistanceMultiplier),
       particleSpeed: 0.3 * mobileOptions.particleSpeedMultiplier
     });
 
-    function resizeCanvas() {
-      aiCanvas.width = aiCanvas.offsetWidth;
-      aiCanvas.height = aiCanvas.offsetHeight;
-      aiNetwork.resize();
-      aiNetwork.createParticles();
+    function resize7monthCanvas() {
+      ai7monthCanvas.width = ai7monthCanvas.offsetWidth;
+      ai7monthCanvas.height = ai7monthCanvas.offsetHeight;
+      ai7monthNetwork.resize();
+      ai7monthNetwork.createParticles();
     }
 
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    resize7monthCanvas();
+    window.addEventListener('resize', resize7monthCanvas);
 
     let waveOffset = 0;
 
-    function drawAIBackground() {
-      aiCtx.clearRect(0, 0, aiCanvas.width, aiCanvas.height);
+    function draw7monthAIBackground() {
+      ai7monthCtx.clearRect(0, 0, ai7monthCanvas.width, ai7monthCanvas.height);
 
       // Draw particle network
-      aiNetwork.updateParticles();
-      aiNetwork.drawParticles();
-      aiNetwork.connectParticles();
+      ai7monthNetwork.updateParticles();
+      ai7monthNetwork.drawParticles();
+      ai7monthNetwork.connectParticles();
 
       // Draw flowing waves on top
       for (let i = 0; i < 5; i++) {
-        aiCtx.beginPath();
-        aiCtx.strokeStyle = `rgba(255, 255, 255, ${0.03 - i * 0.005})`;
-        aiCtx.lineWidth = 1.5;
+        ai7monthCtx.beginPath();
+        ai7monthCtx.strokeStyle = `rgba(255, 255, 255, ${0.03 - i * 0.005})`;
+        ai7monthCtx.lineWidth = 1.5;
 
-        for (let x = 0; x < aiCanvas.width; x += 10) {
-          const y = aiCanvas.height / 2 +
+        for (let x = 0; x < ai7monthCanvas.width; x += 10) {
+          const y = ai7monthCanvas.height / 2 +
             Math.sin((x + waveOffset) * 0.01 + i * 0.5) * 50 +
             Math.sin((x + waveOffset) * 0.005 + i * 0.3) * 30;
 
           if (x === 0) {
-            aiCtx.moveTo(x, y);
+            ai7monthCtx.moveTo(x, y);
           } else {
-            aiCtx.lineTo(x, y);
+            ai7monthCtx.lineTo(x, y);
           }
         }
 
-        aiCtx.stroke();
+        ai7monthCtx.stroke();
       }
 
       waveOffset += 2;
-      requestAnimationFrame(drawAIBackground);
+      requestAnimationFrame(draw7monthAIBackground);
     }
 
-    drawAIBackground();
+    draw7monthAIBackground();
+  }
+
+  // 3-Month AI Canvas - Simple Particle Network
+  const ai3monthCanvas = document.getElementById('ai3monthCanvas');
+  if (ai3monthCanvas) {
+    const ai3monthCtx = ai3monthCanvas.getContext('2d');
+    ai3monthCtx.imageSmoothingEnabled = false;
+    const ai3monthNetwork = new ParticleNetwork(ai3monthCanvas, {
+      particleCount: Math.floor(50 * mobileOptions.particleCountMultiplier),
+      particleSize: 3,
+      lineDistance: Math.floor(120 * mobileOptions.lineDistanceMultiplier),
+      particleSpeed: 0.4 * mobileOptions.particleSpeedMultiplier
+    });
+
+    function resize3monthCanvas() {
+      ai3monthCanvas.width = ai3monthCanvas.offsetWidth;
+      ai3monthCanvas.height = ai3monthCanvas.offsetHeight;
+      ai3monthNetwork.resize();
+      ai3monthNetwork.createParticles();
+    }
+
+    resize3monthCanvas();
+    window.addEventListener('resize', resize3monthCanvas);
+
+    function animate3monthAI() {
+      ai3monthCtx.clearRect(0, 0, ai3monthCanvas.width, ai3monthCanvas.height);
+
+      // Draw particle network
+      ai3monthNetwork.updateParticles();
+      ai3monthNetwork.drawParticles();
+      ai3monthNetwork.connectParticles();
+
+      requestAnimationFrame(animate3monthAI);
+    }
+
+    animate3monthAI();
   }
 
   // IT Canvas - Hexagonal Pattern with Particles
@@ -471,6 +507,7 @@ function initCanvasAnimations() {
     // Start the animation
     animateIT();
   }
+
 }
 
 // Initialize canvas animations when DOM is ready
@@ -872,11 +909,16 @@ function openRegistrationModal(program = '') {
     hiddenProgramInput.value = program;
 
     // Set the form action based on the program
-    if (program === 'ai-software-engineer') {
+    if (program === 'gen-ai-7month') {
       form.action = 'https://formspree.io/f/myzjjdvb';
       // Update modal title
       const modalTitle = document.querySelector('.modal-title');
-      modalTitle.textContent = 'Register for Software Engineer Bootcamp';
+      modalTitle.textContent = 'Register for Gen AI Engineering (7 Months)';
+    } else if (program === 'gen-ai-3month') {
+      form.action = 'https://formspree.io/f/meokkldn';
+      // Update modal title
+      const modalTitle = document.querySelector('.modal-title');
+      modalTitle.textContent = 'Register for Gen AI Engineering (3 Months)';
     } else if (program === 'it-specialist') {
       form.action = 'https://formspree.io/f/meokkldn';
       // Update modal title
@@ -1060,9 +1102,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Highlight the specific track after scrolling
         setTimeout(() => {
-          const trackContainer = trackType === 'ai-track'
-            ? document.querySelector('.ai-track')
-            : document.querySelector('.it-track');
+          let trackContainer;
+          if (trackType === 'ai-7month-track') {
+            trackContainer = document.querySelector('.ai-7month-track');
+          } else if (trackType === 'ai-3month-track') {
+            trackContainer = document.querySelector('.ai-3month-track');
+          } else if (trackType === 'it-track') {
+            trackContainer = document.querySelector('.it-track');
+          }
 
           if (trackContainer) {
             // Remove any existing highlights
