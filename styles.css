@@ -782,6 +782,26 @@ body {
   animation: subtle-glow 3s ease-in-out infinite;
 }
 
+.hero-discount-large {
+  color: var(--accent-orange) !important;
+  text-shadow: 0 0 20px rgba(255, 107, 53, 0.8) !important;
+  animation: discount-glow 2s ease-in-out infinite !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+}
+
+@keyframes discount-glow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 20px rgba(255, 107, 53, 0.8);
+  }
+
+  50% {
+    text-shadow: 0 0 30px rgba(255, 107, 53, 1), 0 0 40px rgba(255, 215, 0, 0.6);
+  }
+}
+
 .feature-divider {
   display: none;
 }
