@@ -301,17 +301,16 @@ function initCanvasAnimations() {
     heroNetwork.animate();
   }
 
-  // 7-Month AI Canvas - Flowing Wave Pattern with Particles
+  // 7-Month AI Canvas - Same as IT Specialist with Hexagonal Pattern
   const ai7monthCanvas = document.getElementById('ai7monthCanvas');
   if (ai7monthCanvas) {
     const ai7monthCtx = ai7monthCanvas.getContext('2d');
-    // Ensure canvas has proper rendering settings
     ai7monthCtx.imageSmoothingEnabled = false;
     const ai7monthNetwork = new ParticleNetwork(ai7monthCanvas, {
-      particleCount: Math.floor(40 * mobileOptions.particleCountMultiplier),
-      particleSize: 2.5,
+      particleCount: Math.floor(50 * mobileOptions.particleCountMultiplier),
+      particleSize: 3,
       lineDistance: Math.floor(150 * mobileOptions.lineDistanceMultiplier),
-      particleSpeed: 0.3 * mobileOptions.particleSpeedMultiplier
+      particleSpeed: 0.4 * mobileOptions.particleSpeedMultiplier
     });
 
     function resize7monthCanvas() {
@@ -319,50 +318,81 @@ function initCanvasAnimations() {
       ai7monthCanvas.height = ai7monthCanvas.offsetHeight;
       ai7monthNetwork.resize();
       ai7monthNetwork.createParticles();
+      create7monthHexagons();
     }
 
-    resize7monthCanvas();
+    setTimeout(() => {
+      resize7monthCanvas();
+    }, 100);
+
     window.addEventListener('resize', resize7monthCanvas);
 
-    let waveOffset = 0;
+    const hexagons7month = [];
+    const hexSize7month = 40;
 
-    function draw7monthAIBackground() {
+    function create7monthHexagons() {
+      hexagons7month.length = 0;
+      for (let x = 0; x < ai7monthCanvas.width + hexSize7month * 2; x += hexSize7month * 3) {
+        for (let y = 0; y < ai7monthCanvas.height + hexSize7month * 2; y += hexSize7month * 2) {
+          hexagons7month.push({
+            x: x + (Math.floor(y / (hexSize7month * 2)) % 2) * (hexSize7month * 1.5),
+            y: y,
+            alpha: Math.random() * 0.2 + 0.05,
+            alphaDirection: Math.random() > 0.5 ? 1 : -1,
+            size: hexSize7month
+          });
+        }
+      }
+    }
+
+    create7monthHexagons();
+
+    function draw7monthHexagon(ctx, x, y, size, alpha) {
+      ctx.beginPath();
+      for (let i = 0; i < 6; i++) {
+        const angle = (Math.PI / 3) * i;
+        const hx = x + size * Math.cos(angle);
+        const hy = y + size * Math.sin(angle);
+
+        if (i === 0) {
+          ctx.moveTo(hx, hy);
+        } else {
+          ctx.lineTo(hx, hy);
+        }
+      }
+      ctx.closePath();
+      ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+      ctx.stroke();
+    }
+
+    function animate7monthAI() {
       ai7monthCtx.clearRect(0, 0, ai7monthCanvas.width, ai7monthCanvas.height);
 
-      // Draw particle network
+      ai7monthCtx.save();
       ai7monthNetwork.updateParticles();
       ai7monthNetwork.drawParticles();
       ai7monthNetwork.connectParticles();
+      ai7monthCtx.restore();
 
-      // Draw flowing waves on top
-      for (let i = 0; i < 5; i++) {
-        ai7monthCtx.beginPath();
-        ai7monthCtx.strokeStyle = `rgba(255, 255, 255, ${0.03 - i * 0.005})`;
-        ai7monthCtx.lineWidth = 1.5;
+      hexagons7month.forEach(hex => {
+        ai7monthCtx.save();
+        ai7monthCtx.globalAlpha = 0.5;
+        draw7monthHexagon(ai7monthCtx, hex.x, hex.y, hex.size, hex.alpha);
+        ai7monthCtx.restore();
 
-        for (let x = 0; x < ai7monthCanvas.width; x += 10) {
-          const y = ai7monthCanvas.height / 2 +
-            Math.sin((x + waveOffset) * 0.01 + i * 0.5) * 50 +
-            Math.sin((x + waveOffset) * 0.005 + i * 0.3) * 30;
-
-          if (x === 0) {
-            ai7monthCtx.moveTo(x, y);
-          } else {
-            ai7monthCtx.lineTo(x, y);
-          }
+        hex.alpha += hex.alphaDirection * 0.003;
+        if (hex.alpha > 0.25 || hex.alpha < 0.05) {
+          hex.alphaDirection *= -1;
         }
+      });
 
-        ai7monthCtx.stroke();
-      }
-
-      waveOffset += 2;
-      requestAnimationFrame(draw7monthAIBackground);
+      requestAnimationFrame(animate7monthAI);
     }
 
-    draw7monthAIBackground();
+    animate7monthAI();
   }
 
-  // 3-Month AI Canvas - Simple Particle Network
+  // 3-Month AI Canvas - Same as IT Specialist with Hexagonal Pattern
   const ai3monthCanvas = document.getElementById('ai3monthCanvas');
   if (ai3monthCanvas) {
     const ai3monthCtx = ai3monthCanvas.getContext('2d');
@@ -370,7 +400,7 @@ function initCanvasAnimations() {
     const ai3monthNetwork = new ParticleNetwork(ai3monthCanvas, {
       particleCount: Math.floor(50 * mobileOptions.particleCountMultiplier),
       particleSize: 3,
-      lineDistance: Math.floor(120 * mobileOptions.lineDistanceMultiplier),
+      lineDistance: Math.floor(150 * mobileOptions.lineDistanceMultiplier),
       particleSpeed: 0.4 * mobileOptions.particleSpeedMultiplier
     });
 
@@ -379,18 +409,73 @@ function initCanvasAnimations() {
       ai3monthCanvas.height = ai3monthCanvas.offsetHeight;
       ai3monthNetwork.resize();
       ai3monthNetwork.createParticles();
+      create3monthHexagons();
     }
 
-    resize3monthCanvas();
+    setTimeout(() => {
+      resize3monthCanvas();
+    }, 100);
+
     window.addEventListener('resize', resize3monthCanvas);
+
+    const hexagons3month = [];
+    const hexSize3month = 40;
+
+    function create3monthHexagons() {
+      hexagons3month.length = 0;
+      for (let x = 0; x < ai3monthCanvas.width + hexSize3month * 2; x += hexSize3month * 3) {
+        for (let y = 0; y < ai3monthCanvas.height + hexSize3month * 2; y += hexSize3month * 2) {
+          hexagons3month.push({
+            x: x + (Math.floor(y / (hexSize3month * 2)) % 2) * (hexSize3month * 1.5),
+            y: y,
+            alpha: Math.random() * 0.2 + 0.05,
+            alphaDirection: Math.random() > 0.5 ? 1 : -1,
+            size: hexSize3month
+          });
+        }
+      }
+    }
+
+    create3monthHexagons();
+
+    function draw3monthHexagon(ctx, x, y, size, alpha) {
+      ctx.beginPath();
+      for (let i = 0; i < 6; i++) {
+        const angle = (Math.PI / 3) * i;
+        const hx = x + size * Math.cos(angle);
+        const hy = y + size * Math.sin(angle);
+
+        if (i === 0) {
+          ctx.moveTo(hx, hy);
+        } else {
+          ctx.lineTo(hx, hy);
+        }
+      }
+      ctx.closePath();
+      ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+      ctx.stroke();
+    }
 
     function animate3monthAI() {
       ai3monthCtx.clearRect(0, 0, ai3monthCanvas.width, ai3monthCanvas.height);
 
-      // Draw particle network
+      ai3monthCtx.save();
       ai3monthNetwork.updateParticles();
       ai3monthNetwork.drawParticles();
       ai3monthNetwork.connectParticles();
+      ai3monthCtx.restore();
+
+      hexagons3month.forEach(hex => {
+        ai3monthCtx.save();
+        ai3monthCtx.globalAlpha = 0.5;
+        draw3monthHexagon(ai3monthCtx, hex.x, hex.y, hex.size, hex.alpha);
+        ai3monthCtx.restore();
+
+        hex.alpha += hex.alphaDirection * 0.003;
+        if (hex.alpha > 0.25 || hex.alpha < 0.05) {
+          hex.alphaDirection *= -1;
+        }
+      });
 
       requestAnimationFrame(animate3monthAI);
     }
