@@ -16,13 +16,13 @@
 - Build AI-powered features in applications (e.g., chatbots, document summarizers, assistants).
 - Use frameworks like **LangChain**, **Mastra**, or **Agentic** to orchestrate prompt chains, memory, and actions.
 - Implement **Retrieval‑Augmented Generation (RAG)** to feed live data into models, boosting accuracy.
-- Develop pipelines/tools that give AI “eyes and hands”—e.g., web search, calculations, planning.
+- Develop pipelines/tools that give AI "eyes and hands"—e.g., web search, calculations, planning.
 - Handle **deployment**, **observability**, and **reliability**, ensuring systems work beyond proof-of-concept.
 - Continuously refine prompt structures—**prompt engineering**, a tangible, marketable skill.
 
 ## Skills & Tooling
 
-- **Languages**: Python, JavaScript/TypeScript—for API integration, orchestration, and prototyping.
+- **Languages**: JavaScript/TypeScript—for API integration, orchestration, and prototyping.
 - **API Proficiency**: Reading LLM documentation, debugging API workflows.
 - **Prompt Engineering**: Iterating on prompts, chaining instructions, designing task decomposition.
 - **Framework Fluency**: LangChain, Mastra, Agentic, RAG pipelines.
@@ -38,7 +38,7 @@
   - Write clear, explicit instructions.
   - Provide sufficient context.
   - Break down complex tasks into simpler subtasks.
-  - Allow the model to “think” (chain-of-thought, step-by-step).
+  - Allow the model to "think" (chain-of-thought, step-by-step).
   - Iterate and refine prompts.
   - Organize and version prompts systematically.
 - **RAG Beyond Texts & Agents**:
@@ -118,7 +118,7 @@
 |---------------------|-----------------------------------------------------------------------------------------|
 | **Role Type**        | Hybrid builder–engineer–architect                                                       |
 | **Core Tasks**       | API integration, prompt chaining, RAG pipelines, deployment, observability             |
-| **Tech Stack**       | Python / JS, LLM APIs, LangChain/Mastra, RAG, MCP, A2A                                  |
+| **Tech Stack**       | JavaScript/TypeScript, LLM APIs, LangChain/Mastra, RAG, MCP, A2A                                  |
 | **Special Topics**   | Prompt engineering, model hosting, fine‑tuning, user feedback pipelines                  |
 | **Security Focus**   | Prompt injection/jailbreak defenses, RPE, MCP tool hygiene                              |
 | **Why It Exists**    | To bridge foundation models and scalable, reliable, responsible AI-powered products     |

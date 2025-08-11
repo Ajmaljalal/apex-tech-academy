@@ -1,6 +1,6 @@
 # Gen AI Engineering — 12 Week Curriculum
 
-**Prerequisite:** Familiarity with Python or JavaScript (can read, write, and debug code)
+**Prerequisite:** Familiarity with JavaScript (can read, write, and debug code)
 
 **Schedule:**
 - Duration: 3 months (12 weeks)

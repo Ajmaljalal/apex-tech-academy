@@ -9,30 +9,30 @@
 
 ---
 
-## Phase 1: Python Mastery (Months 1–4)
+## Phase 1: JavaScript Mastery (Months 1–4)
 
-## Month 1 (Weeks 1–4): Python Fundamentals
+## Month 1 (Weeks 1–4): JavaScript Fundamentals
 
-### Weeks 1–2: Getting Started with Python & Professional Setup
-- Development environment setup (Python, IDE)
+### Weeks 1–2: Getting Started with JavaScript & Professional Setup
+- Development environment setup (Node.js, IDE)
 - Git and GitHub fundamentals: repositories, commits, branches, collaboration
 - LinkedIn presence building: professional profile, portfolio setup
-- Python syntax, variables, data types (strings, numbers, booleans)
+- JavaScript syntax, variables, data types (strings, numbers, booleans)
 - Input/output, comments, basic operators
-- Control structures: if/elif/else statements
+- Control structures: if/else statements, switch statements
 - Introduction to debugging and error messages
 
 ### Weeks 3–4: Loops and Data Structures
 - For loops, while loops, loop control (break, continue)
-- Lists: creation, indexing, slicing, methods
-- Dictionaries: key-value pairs, methods, iteration
-- Tuples and sets: when and how to use them
+- Arrays: creation, indexing, slicing, methods
+- Objects: key-value pairs, methods, iteration
+- Sets and Maps: when and how to use them
 - String manipulation and formatting
 
 #### **Month 1 Project**
 > **Personal Budget Tracker**
 > 
-> **Overview:** Build a command-line budget tracking application using only Python fundamentals learned in Month 1.
+> **Overview:** Build a command-line budget tracking application using only JavaScript fundamentals learned in Month 1.
 > 
 > **Core Features:**
 > - Add income and expense transactions with categories
@@ -42,16 +42,16 @@
 > - Menu-driven interface with clear user prompts
 > 
 > **Technical Requirements (Month 1 Skills Only):**
-> - Use **lists** to store transaction data (each transaction as a dictionary)
-> - Use **dictionaries** for individual transactions with keys: amount, category, description, type
-> - **If/elif/else** statements for menu navigation and input validation
+> - Use **arrays** to store transaction data (each transaction as an object)
+> - Use **objects** for individual transactions with keys: amount, category, description, type
+> - **If/else** statements for menu navigation and input validation
 > - **For loops** to display transactions and calculate totals
 > - **String manipulation** for formatting output and user input processing
 > - **Basic input/output** with proper user prompts and error messages
 > 
 > **Sample Features:**
 > - Add transaction: Ask for amount, category, description, type (income/expense)
-> - View transactions: Loop through list and display formatted entries
+> - View transactions: Loop through array and display formatted entries
 > - Calculate totals: Use loops to sum income and expenses
 > - Category breakdown: Count transactions per category
 > - Simple budgeting: Compare expenses to income
@@ -62,24 +62,24 @@
 > - Update LinkedIn profile with project experience
 > - Write clear code comments explaining logic
 > 
-> **Goal:** Apply Python fundamentals (variables, lists, dictionaries, loops, conditionals) in a practical project while establishing professional development habits
+> **Goal:** Apply JavaScript fundamentals (variables, arrays, objects, loops, conditionals) in a practical project while establishing professional development habits
 
 ---
 
-## Month 2 (Weeks 5–8): Intermediate Python & Problem Solving
+## Month 2 (Weeks 5–8): Intermediate JavaScript & Problem Solving
 
 ### Weeks 5–6: Functions and Modules
 - Function definition, parameters, return values
 - Scope and namespaces, local vs global variables
-- Lambda functions and higher-order functions
-- Built-in functions: map, filter, reduce, zip
-- Creating and importing modules, Python package structure
+- Arrow functions and higher-order functions
+- Built-in methods: map, filter, reduce, forEach
+- Creating and importing modules, ES6 module structure
 
 ### Weeks 7–8: File Handling and Error Management
-- Reading from and writing to files
+- Reading from and writing to files with Node.js
 - Working with CSV, JSON data formats
-- Exception handling: try/except/finally blocks
-- Custom exceptions and error debugging strategies
+- Exception handling: try/catch/finally blocks
+ - Custom error classes and error debugging strategies
 - Regular expressions for text processing
 
 #### **Month 2 Project**
@@ -95,11 +95,11 @@
 > - **Data Import:** Read and process CSV files with transaction data
 > 
 > **Technical Requirements (Month 2 Skills):**
-> - **Functions:** Create modular functions for add_transaction(), calculate_totals(), generate_report()
-> - **Modules:** Organize code into separate Python files (main.py, data_handler.py, report_generator.py)
+> - **Functions:** Create modular functions for addTransaction(), calculateTotals(), generateReport()
+> - **Modules:** Organize code into separate JavaScript files (main.js, dataHandler.js, reportGenerator.js)
 > - **CSV Handling:** Read/write transaction data to CSV files with proper headers
 > - **JSON Support:** Save user preferences and settings in JSON format
-> - **Exception Handling:** Try/except blocks for file operations and user input
+> - **Exception Handling:** Try/catch blocks for file operations and user input
 > - **Regular Expressions:** Validate email addresses, phone numbers, and currency formats
 > 
 > **New Features Building on Month 1:**
@@ -112,10 +112,10 @@
 > 
 > **File Structure:**
 > ```
-> budget_analyzer/
-> ├── main.py (main program with menu)
-> ├── data_handler.py (CSV/JSON functions)
-> ├── report_generator.py (analysis functions)
+> budget-analyzer/
+> ├── main.js (main program with menu)
+> ├── dataHandler.js (CSV/JSON functions)
+> ├── reportGenerator.js (analysis functions)
 > ├── transactions.csv (data storage)
 > └── settings.json (user preferences)
 > ```
@@ -135,59 +135,64 @@
 
 ### Weeks 9–10: Object-Oriented Programming
 - Classes and objects: attributes and methods
-- Constructor methods (__init__), instance vs class variables
+- Constructor methods, instance vs class variables
 - Inheritance, method overriding, super() function
-- Encapsulation, property decorators
-- Polymorphism and abstract base classes
+- Encapsulation, getters and setters
+- Polymorphism and abstract classes
 
-### Weeks 11–12: Advanced Python Features
+### Weeks 11–12: Advanced JavaScript Features
 - Decorators: function and class decorators
-- Context managers and the 'with' statement
+- Async/await and Promises
 - Generators and iterators, yield keyword
-- Comprehensions: list, dict, set comprehensions
+- Destructuring and spread operators
 - Working with dates, times, and timezones
 
 #### **Month 3 Project**
 > **Object-Oriented Task Management System**
 > 
-> **Overview:** Transform the Month 2 file-based application into a sophisticated object-oriented system using classes, inheritance, and advanced Python features.
+> **Overview:** Transform the Month 2 file-based application into a sophisticated object-oriented system using classes, inheritance, and advanced JavaScript features.
 > 
 > **Core Object-Oriented Design:**
 > - **Base Classes:** Create `Transaction`, `User`, `Account` classes
 > - **Inheritance:** `IncomeTransaction` and `ExpenseTransaction` inherit from `Transaction`
-> - **Encapsulation:** Private attributes with property decorators for validation
+> - **Encapsulation:** Private attributes with getters and setters for validation
 > - **Polymorphism:** Different transaction types with shared interface
 > - **Composition:** `BudgetManager` class that contains multiple accounts
 > 
 > **Class Structure:**
-> ```python
-> class Transaction:
->     # Base class with common attributes and methods
+> ```javascript
+> class Transaction {
+>     // Base class with common attributes and methods
+> }
 > 
-> class IncomeTransaction(Transaction):
->     # Specific methods for income handling
+> class IncomeTransaction extends Transaction {
+>     // Specific methods for income handling
+> }
 > 
-> class ExpenseTransaction(Transaction):
->     # Specific methods for expense handling
+> class ExpenseTransaction extends Transaction {
+>     // Specific methods for expense handling
+> }
 > 
-> class Account:
->     # Manages collection of transactions
+> class Account {
+>     // Manages collection of transactions
+> }
 > 
-> class BudgetManager:
->     # Main application controller
+> class BudgetManager {
+>     // Main application controller
+> }
 > ```
 > 
-> **Advanced Python Features (Month 3 Skills):**
+> **Advanced JavaScript Features (Month 3 Skills):**
 > - **Decorators:** Create custom decorators for logging transactions and validating input
-> - **Context Managers:** Implement context managers for safe file operations
+> - **Async/Await:** Implement asynchronous file operations and API calls
 > - **Generators:** Create generators for iterating through large transaction datasets
-> - **Comprehensions:** Use list/dict comprehensions for data filtering and processing
-> - **Property Decorators:** Implement getters/setters with validation
+> - **Destructuring:** Use destructuring for data extraction and manipulation
+> - **Getters/Setters:** Implement validation and computed properties
 > - **Date/Time Handling:** Track transaction timestamps and generate date-based reports
 > 
 > **Object-Oriented Features:**
 > - Constructor methods with parameter validation
-> - String representation methods (`__str__`, `__repr__`)
+> - String representation methods (`toString()`)
 > - Comparison methods for sorting transactions
 > - Iterator protocol for custom objects
 > - Class and static methods for utility functions
@@ -198,45 +203,45 @@
 > - Automatic categorization based on description patterns
 > - Monthly/yearly budget planning with goal tracking
 > - Transaction search and filtering using object methods
-> - Data validation using property setters
+> - Data validation using getters and setters
 > 
 > **Technical Implementation:**
-> - Custom exception classes for different error types
+> - Custom error classes for different error types
 > - Decorator for automatic transaction logging
-> - Context manager for database-like transaction commits
+> - Async context for database-like transaction commits
 > - Generator functions for memory-efficient data processing
-> - Comprehensions for complex data transformations
+> - Destructuring for complex data transformations
 > 
 > **Sample Advanced Features:**
-> - `@validate_amount` decorator to ensure positive values
-> - `with account.transaction_batch():` context manager
-> - Generator: `account.transactions_by_month(2024)`
-> - Comprehension: `[t for t in transactions if t.amount > 100]`
+> - `@validateAmount` decorator to ensure positive values
+> - `await account.transactionBatch()` async function
+> - Generator: `account.transactionsByMonth(2024)`
+> - Destructuring: `const {amount, category} = transaction`
 > 
-> **Goal:** Master object-oriented programming and advanced Python features while building a well-structured, maintainable application that demonstrates professional coding practices
+> **Goal:** Master object-oriented programming and advanced JavaScript features while building a well-structured, maintainable application that demonstrates professional coding practices
 
 ---
 
-## Month 4 (Weeks 13–16): Web Development with Python
+## Month 4 (Weeks 13–16): Web Development with JavaScript
 
 ### Weeks 13–14: Web Development Foundations
-- Virtual environments and package management (pip, requirements.txt)
-- Requests library: API consumption, HTTP methods, working with JSON
-- HTML/CSS basics for Python developers
-- Introduction to web frameworks: Flask vs FastAPI comparison
+- Package management with npm and package.json
+- Fetch API: API consumption, HTTP methods, working with JSON
+- HTML/CSS basics for JavaScript developers
+- Introduction to web frameworks: Express.js vs Fastify comparison
 - Setting up development servers and debugging web applications
 
 ### Weeks 15–16: Advanced Web Development
-- Flask/FastAPI basics: routes, templates, forms
-- Database integration: SQLite, SQL basics with Python
+- Express.js/Fastify basics: routes, middleware, forms
+- Database integration: SQLite, SQL basics with JavaScript
 - RESTful API design and implementation
-- Testing: unittest, pytest, test-driven development
+- Testing: Jest, Mocha, test-driven development
 - Code organization, documentation, and best practices
 
 #### **Month 4 Capstone Project**
 > **Personal Finance Web Application**
 > 
-> **Overview:** Transform the command-line budget tracker into a full-stack web application using Flask/FastAPI, SQLite database, and modern web development practices.
+> **Overview:** Transform the command-line budget tracker into a full-stack web application using Express.js/Fastify, SQLite database, and modern web development practices.
 > 
 > **Core Web Features:**
 > - **User Authentication:** Registration, login, logout with session management
@@ -247,7 +252,7 @@
 > - **Data Export:** Download transactions as CSV files
 > 
 > **Technical Architecture (Month 4 Skills):**
-> - **Backend Framework:** Flask or FastAPI with proper route organization
+> - **Backend Framework:** Express.js or Fastify with proper route organization
 > - **Database:** SQLite with SQL queries for data persistence
 > - **Frontend:** HTML templates with CSS styling and basic JavaScript
 > - **API Design:** RESTful endpoints for transaction CRUD operations
@@ -275,7 +280,7 @@
 > 
 > **Web Development Features:**
 > - **Routes:** Home, login, register, dashboard, add transaction, reports
-> - **Templates:** Jinja2 templates with base layout and inheritance
+> - **Templates:** EJS or Handlebars templates with base layout and inheritance
 > - **Forms:** HTML forms with server-side validation
 > - **CSS Styling:** Responsive design with modern CSS
 > - **JavaScript:** Basic interactivity for form validation and dynamic updates
@@ -284,8 +289,8 @@
 > **API Endpoints:**
 > - `GET /api/transactions` - List user transactions
 > - `POST /api/transactions` - Create new transaction
-> - `PUT /api/transactions/<id>` - Update transaction
-> - `DELETE /api/transactions/<id>` - Delete transaction
+> - `PUT /api/transactions/:id` - Update transaction
+> - `DELETE /api/transactions/:id` - Delete transaction
 > - `GET /api/reports/monthly` - Monthly summary data
 > 
 > **Testing & Quality:**
@@ -293,13 +298,13 @@
 > - Route testing with test client
 > - Form validation testing
 > - Error handling for invalid data
-> - Code organization with blueprints/routers
+> - Code organization with routes and middleware
 > 
 > **Deployment Preparation:**
-> - Virtual environment setup with requirements.txt
+> - Package.json setup with dependencies
 > - Environment variables for configuration
 > - Database initialization scripts
-> - Simple deployment to PythonAnywhere or Heroku
+> - Simple deployment to Heroku or Railway
 > - Basic security practices (password hashing, input sanitization)
 > 
 > **Portfolio Integration:**
@@ -308,7 +313,7 @@
 > - GitHub repository with proper documentation
 > - Live demo link for employers to test
 > 
-> **Goal:** Master web development fundamentals by building a complete full-stack application that demonstrates proficiency in modern Python web frameworks, databases, and frontend technologies
+> **Goal:** Master web development fundamentals by building a complete full-stack application that demonstrates proficiency in modern JavaScript web frameworks, databases, and frontend technologies
 
 ---
 
@@ -321,19 +326,19 @@
 - OpenAI, Anthropic, open-source LLMs, API basics
 - Zero-shot/few-shot prompting, in-context learning
 - System vs. user prompts, context window, task decomposition
-- Python integration: OpenAI SDK, API management
+- JavaScript integration: OpenAI SDK, API management
 
 ### Weeks 19–20: Advanced Prompt Engineering & Security
 - Prompt Engineering best practices: clarity, context, chain-of-thought
 - Role prompting, style transfer, iteration, and versioning
 - Prompt engineering tools: PromptLayer, LangChain, registries
 - Security: prompt injection, jailbreaking, adversarial prompts, defensive engineering
-- Building prompt pipelines with Python
+- Building prompt pipelines with JavaScript
 
 #### **Month 5 Major Project**
 > **Smart Writing Assistant Web App**
 > 
-> **Overview:** Build a web-based writing assistant that integrates OpenAI's API with the Flask application from Month 4, focusing on prompt engineering and basic LLM integration.
+> **Overview:** Build a web-based writing assistant that integrates OpenAI's API with the Express.js application from Month 4, focusing on prompt engineering and basic LLM integration.
 > 
 > **Core AI Features (Month 5 Skills):**
 > - **Text Enhancement:** Improve grammar, style, and clarity of user input
@@ -352,7 +357,7 @@
 > - **Role-Based Prompting:** Act as specific personas (editor, marketer, teacher)
 > 
 > **Technical Integration (Building on Month 4):**
-> - **OpenAI SDK:** Integrate OpenAI Python library into Flask application
+> - **OpenAI SDK:** Integrate OpenAI JavaScript library into Express.js application
 > - **API Management:** Handle API keys securely with environment variables
 > - **Error Handling:** Manage API rate limits, timeouts, and errors gracefully
 > - **Cost Tracking:** Monitor token usage and API costs
@@ -375,13 +380,13 @@
 > - **Error Logging:** Track failed requests and potential security issues
 > 
 > **Prompt Template Library:**
-> ```python
-> TEMPLATES = {
->     "blog_post": "Write a {tone} blog post about {topic} for {audience}...",
->     "email": "Compose a {type} email to {recipient} about {subject}...",
->     "summary": "Summarize the following text in {length} sentences...",
->     "qa": "Answer this question based on the provided context..."
-> }
+> ```javascript
+> const TEMPLATES = {
+>     blogPost: "Write a {tone} blog post about {topic} for {audience}...",
+>     email: "Compose a {type} email to {recipient} about {subject}...",
+>     summary: "Summarize the following text in {length} sentences...",
+>     qa: "Answer this question based on the provided context..."
+> };
 > ```
 > 
 > **Database Extensions:**
@@ -630,16 +635,16 @@
 > - **Network Building:** Build relationships with classmates, instructors, and industry professionals
 > - **Mentorship Connections:** Find and connect with senior AI engineers for ongoing career guidance
 > 
-> **Goal:** Create a production-ready AI application that demonstrates mastery of the complete GenAI engineering stack—from Python fundamentals to production deployment—while executing a comprehensive career launch strategy that positions graduates for immediate success in senior AI engineering roles
+> **Goal:** Create a production-ready AI application that demonstrates mastery of the complete GenAI engineering stack—from JavaScript fundamentals to production deployment—while executing a comprehensive career launch strategy that positions graduates for immediate success in senior AI engineering roles
 
 ---
 
 ## Course Outcomes
 
-### Python Mastery (Months 1-4)
-- **Core Python:** Variables, data structures, control flow, functions, OOP
-- **Advanced Python:** Decorators, generators, context managers, comprehensions
-- **Web Development:** Flask/FastAPI, APIs, databases, full-stack applications
+### JavaScript Mastery (Months 1-4)
+- **Core JavaScript:** Variables, data structures, control flow, functions, OOP
+- **Advanced JavaScript:** Decorators, generators, async/await, destructuring
+- **Web Development:** Express.js/Fastify, APIs, databases, full-stack applications
 - **Software Engineering:** Clean code, testing, documentation, version control
 - **Professional Skills:** Git/GitHub workflow, LinkedIn presence, portfolio development
 
@@ -656,10 +661,10 @@
 
 ## Project Milestones
 
-- **End of Month 1:** Personal Budget Tracker (Python fundamentals)
-- **End of Month 2:** Data Analysis Tool (intermediate Python)
+- **End of Month 1:** Personal Budget Tracker (JavaScript fundamentals)
+- **End of Month 2:** Data Analysis Tool (intermediate JavaScript)
 - **End of Month 3:** Task Management System (OOP mastery)
-- **End of Month 4:** Full-Stack Web Application (Python ecosystem)
+- **End of Month 4:** Full-Stack Web Application (JavaScript ecosystem)
 - **End of Month 5:** Prompt-driven GenAI application
 - **End of Month 6:** RAG + agent-powered workflow system  
 - **End of Month 7:** Final Capstone—production, secure, user-facing GenAI solution + Career Launch Package
@@ -669,6 +674,6 @@
 ## Prerequisites Update
 - **No programming experience required**
 - Commitment to 6+ hours per week of study and practice
-- Access to a computer capable of running Python development tools
+- Access to a computer capable of running JavaScript development tools
 - Willingness to engage with AI tools and emerging technologies
 
