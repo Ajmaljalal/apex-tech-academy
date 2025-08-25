@@ -1177,46 +1177,28 @@ document.addEventListener('DOMContentLoaded', function () {
   const trackOptions = document.querySelectorAll('.hero-tracks .track-option');
 
   trackOptions.forEach(trackOption => {
-    trackOption.addEventListener('click', function (e) {
-      e.preventDefault();
-
+    trackOption.addEventListener('click', function () {
       const trackType = this.getAttribute('data-track');
-      const programsSection = document.getElementById('programs');
 
-      if (programsSection) {
-        // Smooth scroll to programs section
-        programsSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+      // Highlight the specific track after scrolling
+      setTimeout(() => {
+        const trackContainer = document.querySelector(`.${trackType}`);
 
-        // Highlight the specific track after scrolling
-        setTimeout(() => {
-          let trackContainer;
-          if (trackType === 'ai-7month-track') {
-            trackContainer = document.querySelector('.ai-7month-track');
-          } else if (trackType === 'ai-3month-track') {
-            trackContainer = document.querySelector('.ai-3month-track');
-          } else if (trackType === 'it-track') {
-            trackContainer = document.querySelector('.it-track');
-          }
+        if (trackContainer) {
+          // Remove any existing highlights
+          document.querySelectorAll('.track-container').forEach(container => {
+            container.classList.remove('track-highlight');
+          });
 
-          if (trackContainer) {
-            // Remove any existing highlights
-            document.querySelectorAll('.track-container').forEach(container => {
-              container.classList.remove('track-highlight');
-            });
+          // Add highlight to the selected track
+          trackContainer.classList.add('track-highlight');
 
-            // Add highlight to the selected track
-            trackContainer.classList.add('track-highlight');
-
-            // Remove highlight after 3 seconds
-            setTimeout(() => {
-              trackContainer.classList.remove('track-highlight');
-            }, 3000);
-          }
-        }, 800); // Wait for scroll to complete
-      }
+          // Remove highlight after 3 seconds
+          setTimeout(() => {
+            trackContainer.classList.remove('track-highlight');
+          }, 3000);
+        }
+      }, 800); // Wait for scroll to complete
     });
   });
 });
