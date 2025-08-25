@@ -1009,6 +1009,11 @@ function openRegistrationModal(program = '') {
       // Update modal title
       const modalTitle = document.querySelector('.modal-title');
       modalTitle.textContent = 'Register for IT Specialist Bootcamp';
+    } else if (program === 'ai-automation') {
+      form.action = 'https://formspree.io/f/meokkldn';
+      // Update modal title
+      const modalTitle = document.querySelector('.modal-title');
+      modalTitle.textContent = 'Register for AI Automation Expert Program';
     }
   }
 

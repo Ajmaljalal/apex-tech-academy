@@ -240,6 +240,8 @@ function openRegistrationModal(program = '') {
       form.action = 'https://formspree.io/f/myzjjdvb';
     } else if (program === 'it-specialist') {
       form.action = 'https://formspree.io/f/meokkldn';
+    } else if (program === 'ai-automation') {
+      form.action = 'https://formspree.io/f/meokkldn';
     }
 
     // Update modal title based on program
@@ -248,6 +250,8 @@ function openRegistrationModal(program = '') {
       modalTitle.textContent = 'Register for Software Engineer Bootcamp';
     } else if (program === 'it-specialist') {
       modalTitle.textContent = 'Register for IT Specialist Bootcamp';
+    } else if (program === 'ai-automation') {
+      modalTitle.textContent = 'Register for AI Automation Expert Program';
     }
   }
 
