@@ -977,13 +977,14 @@ body {
 
 .track-title {
   font-family: var(--font-tech);
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  height: 3rem;
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  line-height: 1.1;
 }
 
 .dotted-text {
@@ -993,7 +994,7 @@ body {
   font-weight: 900;
   text-transform: uppercase;
   padding-bottom: 0.8rem;
-  font-size: .6em;
+  font-size: 1em;
   /* Default solid white color for maximum readability */
   color: var(--text-white);
   text-shadow:
@@ -2340,12 +2341,12 @@ body {
   }
 
   .track-title {
-    font-size: 2.2rem;
+    font-size: 3.5rem;
   }
 
   .dotted-text {
     letter-spacing: 4px;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
 
   .bootcamp-text {
@@ -2464,6 +2465,14 @@ body {
 
   .hero-title {
     font-size: clamp(1.8rem, 5vw, 3rem);
+  }
+
+  .track-title {
+    font-size: 3rem;
+  }
+
+  .dotted-text {
+    font-size: 1.5rem;
   }
 
   .hero-subtitle {
