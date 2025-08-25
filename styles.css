@@ -2247,6 +2247,13 @@ body {
     padding: 0 1rem;
   }
 
+  /* Ensure buttons never wrap text on very small screens */
+  .track-cta,
+  .details-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
   .track-option {
     padding: 1.2rem 1.5rem;
     width: 280px;
@@ -2337,7 +2344,8 @@ body {
   /* Button width adjustments for mobile */
   .track-cta,
   .details-btn {
-    width: 240px;
+    width: 100%;
+    max-width: 320px;
   }
 
   .track-title {
@@ -2483,7 +2491,8 @@ body {
   /* Button width adjustments for very small screens */
   .track-cta,
   .details-btn {
-    width: 220px;
+    width: 100%;
+    max-width: 300px;
   }
 
   .hero-tracks {
