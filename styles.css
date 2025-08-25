@@ -370,37 +370,12 @@ body {
   color: var(--accent-yellow);
   text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
   transition: all 0.3s ease;
-  opacity: 0;
+  opacity: 1;
   margin-bottom: 0.5rem;
   line-height: 1;
-  /* Initially hidden for animation */
 }
 
-/* Glowing animation for month and price */
-.feature-number.glow-active {
-  animation: glow-pulse 2s ease-in-out infinite;
-}
 
-@keyframes glow-pulse {
-
-  0%,
-  100% {
-    text-shadow:
-      0 0 20px rgba(255, 215, 0, 0.5),
-      0 0 40px rgba(255, 215, 0, 0.3),
-      0 0 60px rgba(255, 215, 0, 0.1);
-    transform: scale(1);
-  }
-
-  50% {
-    text-shadow:
-      0 0 30px rgba(255, 215, 0, 0.8),
-      0 0 60px rgba(255, 215, 0, 0.5),
-      0 0 90px rgba(255, 215, 0, 0.3),
-      0 0 120px rgba(255, 215, 0, 0.1);
-    transform: scale(1.05);
-  }
-}
 
 @keyframes subtle-glow {
 
@@ -459,21 +434,8 @@ body {
 .hero-discount-large {
   color: var(--accent-orange) !important;
   text-shadow: 0 0 20px rgba(255, 107, 53, 0.8) !important;
-  animation: discount-glow 2s ease-in-out infinite !important;
   font-weight: 900 !important;
   letter-spacing: 2px !important;
-}
-
-@keyframes discount-glow {
-
-  0%,
-  100% {
-    text-shadow: 0 0 20px rgba(255, 107, 53, 0.8);
-  }
-
-  50% {
-    text-shadow: 0 0 30px rgba(255, 107, 53, 1), 0 0 40px rgba(255, 215, 0, 0.6);
-  }
 }
 
 .feature-divider {

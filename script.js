@@ -626,61 +626,7 @@ document.head.appendChild(style);
 // Navbar Background on Scroll - REMOVED
 // Background color change on scroll has been disabled
 
-// Typing Effect for Hero Title (optional enhancement)
-function typeWriter(element, text, speed = 100) {
-  let i = 0;
-  element.textContent = '';
 
-  function type() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
-    }
-  }
-
-  type();
-}
-
-// Initialize typing effect after loading
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const heroTitle = document.querySelector('.hero-title .title-line');
-    if (heroTitle) {
-      const originalText = heroTitle.textContent;
-      typeWriter(heroTitle, originalText, 50);
-    }
-  }, 2500);
-
-  // Start glowing effect after typing animation completes
-  setTimeout(() => {
-    const featureNumbers = document.querySelectorAll('.feature-number');
-    const featureItems = document.querySelectorAll('.feature-item');
-
-    // Animate feature items with stagger
-    featureItems.forEach((item, index) => {
-      setTimeout(() => {
-        const number = item.querySelector('.feature-number');
-        if (number) {
-          // Add entrance animation
-          number.style.opacity = '0';
-          number.style.transform = 'scale(0.8)';
-
-          setTimeout(() => {
-            number.style.transition = 'all 0.5s ease';
-            number.style.opacity = '1';
-            number.style.transform = 'scale(1)';
-
-            // Add glowing effect after entrance
-            setTimeout(() => {
-              number.classList.add('glow-active');
-            }, 300);
-          }, 50);
-        }
-      }, index * 300); // Stagger the animation between month and price
-    });
-  }, 3200); // Start after typing animation (~3.2 seconds)
-});
 
 // Add hover effect to contact cards
 document.querySelectorAll('.contact-card').forEach(card => {
