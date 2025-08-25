@@ -1167,20 +1167,7 @@ body {
   overflow: hidden;
 }
 
-.ai-badge::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.5s ease;
-}
 
-.ai-badge:hover::before {
-  left: 100%;
-}
 
 .ai-badge:hover {
   transform: translateY(-1px);
@@ -2343,11 +2330,11 @@ body {
   .track-option {
     padding: 1.2rem 1rem;
     width: 280px;
-    height: 100px;
+    height: 130px;
     min-width: 280px;
-    min-height: 100px;
+    min-height: 130px;
     max-width: 280px;
-    max-height: 100px;
+    max-height: 130px;
     margin: 0 auto;
     border-radius: 20px;
     box-sizing: border-box;
@@ -2544,6 +2531,18 @@ body {
   .loading-line {
     justify-content: center;
   }
+
+  /* Stack track badges vertically on mobile */
+  .track-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .badge-separator {
+    display: none;
+  }
 }
 
 /* Additional mobile breakpoint for very small screens */
@@ -2595,11 +2594,11 @@ body {
   .track-option {
     padding: 1rem 0.8rem;
     width: 260px;
-    height: 90px;
+    height: 110px;
     min-width: 260px;
-    min-height: 90px;
+    min-height: 110px;
     max-width: 260px;
-    max-height: 90px;
+    max-height: 110px;
     margin: 0 auto;
     border-radius: 18px;
     box-sizing: border-box;
@@ -2695,6 +2694,18 @@ body {
 
   .loading-line {
     justify-content: center;
+  }
+
+  /* Stack track badges vertically on very small screens */
+  .track-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .badge-separator {
+    display: none;
   }
 
   /* Modal adjustments for very small screens */
