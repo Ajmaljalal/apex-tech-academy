@@ -116,10 +116,10 @@ window.addEventListener('load', () => {
   // Update loading status text
   const statusEl = document.querySelector('.loading-status');
   if (statusEl) {
-    setTimeout(() => statusEl.textContent = 'LOADING MODULES...', 800);
-    setTimeout(() => statusEl.textContent = 'OPTIMIZING EXPERIENCE...', 1800);
-    setTimeout(() => statusEl.textContent = 'PREPARING INTERFACE...', 2800);
-    setTimeout(() => statusEl.textContent = 'READY!', 3200);
+    setTimeout(() => statusEl.textContent = 'LOADING MODULES...', 250);
+    setTimeout(() => statusEl.textContent = 'OPTIMIZING EXPERIENCE...', 500);
+    setTimeout(() => statusEl.textContent = 'PREPARING INTERFACE...', 750);
+    setTimeout(() => statusEl.textContent = 'READY!', 1000);
   }
 
   setTimeout(() => {
@@ -133,8 +133,8 @@ window.addEventListener('load', () => {
 
     setTimeout(() => {
       loadingScreen.style.display = 'none';
-    }, 800);
-  }, 3500);
+    }, 267);
+  }, 1167);
 });
 
 // Mobile Navigation Toggle

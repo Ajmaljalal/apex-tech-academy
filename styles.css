@@ -137,64 +137,64 @@ body {
 
 /* First line: APEX TECH */
 .loading-line:nth-child(1) .loading-letter:nth-child(1) {
-  animation-delay: 0.15s;
+  animation-delay: 0.05s;
 }
 
 .loading-line:nth-child(1) .loading-letter:nth-child(2) {
-  animation-delay: 0.3s;
+  animation-delay: 0.1s;
 }
 
 .loading-line:nth-child(1) .loading-letter:nth-child(3) {
-  animation-delay: 0.45s;
+  animation-delay: 0.15s;
 }
 
 .loading-line:nth-child(1) .loading-letter:nth-child(4) {
-  animation-delay: 0.6s;
+  animation-delay: 0.2s;
 }
 
 .loading-line:nth-child(1) .loading-letter:nth-child(6) {
-  animation-delay: 0.9s;
+  animation-delay: 0.3s;
 }
 
 .loading-line:nth-child(1) .loading-letter:nth-child(7) {
-  animation-delay: 1.05s;
+  animation-delay: 0.35s;
 }
 
 .loading-line:nth-child(1) .loading-letter:nth-child(8) {
-  animation-delay: 1.2s;
+  animation-delay: 0.4s;
 }
 
 .loading-line:nth-child(1) .loading-letter:nth-child(9) {
-  animation-delay: 1.35s;
+  animation-delay: 0.45s;
 }
 
 /* Second line: ACADEMY */
 .loading-line:nth-child(2) .loading-letter:nth-child(1) {
-  animation-delay: 1.65s;
+  animation-delay: 0.55s;
 }
 
 .loading-line:nth-child(2) .loading-letter:nth-child(2) {
-  animation-delay: 1.8s;
+  animation-delay: 0.6s;
 }
 
 .loading-line:nth-child(2) .loading-letter:nth-child(3) {
-  animation-delay: 1.95s;
+  animation-delay: 0.65s;
 }
 
 .loading-line:nth-child(2) .loading-letter:nth-child(4) {
-  animation-delay: 2.1s;
+  animation-delay: 0.7s;
 }
 
 .loading-line:nth-child(2) .loading-letter:nth-child(5) {
-  animation-delay: 2.25s;
+  animation-delay: 0.75s;
 }
 
 .loading-line:nth-child(2) .loading-letter:nth-child(6) {
-  animation-delay: 2.4s;
+  animation-delay: 0.8s;
 }
 
 .loading-line:nth-child(2) .loading-letter:nth-child(7) {
-  animation-delay: 2.55s;
+  animation-delay: 0.85s;
 }
 
 .loading-progress {
@@ -217,7 +217,7 @@ body {
   background: linear-gradient(90deg, var(--accent-orange), var(--accent-yellow));
   border-radius: 2px;
   width: 0%;
-  animation: progressFill 3.0s ease-out forwards;
+  animation: progressFill 1.0s ease-out forwards;
   box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
 }
 
