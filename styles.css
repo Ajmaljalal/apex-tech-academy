@@ -524,96 +524,44 @@ body {
   padding: 1.5rem 2rem;
   width: 250px;
   height: 120px;
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.08) 0%,
-      rgba(255, 255, 255, 0.03) 100%);
-  border: 2px solid transparent;
-  border-radius: 20px;
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-yellow) 100%);
+  border: none;
+  border-radius: 25px;
   position: relative;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
   text-decoration: none;
-  color: inherit;
+  color: white;
   cursor: pointer;
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  animation: track-glow 4s ease-in-out infinite;
+  box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
+  font-weight: 700;
 }
 
 .track-option::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg,
-      rgba(255, 107, 53, 0.1) 0%,
-      rgba(255, 215, 0, 0.1) 100%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  border-radius: 18px;
-}
-
-.track-option::after {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(135deg,
-      var(--accent-orange) 0%,
-      var(--accent-yellow) 50%,
-      var(--accent-orange) 100%);
-  border-radius: 20px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
 }
 
 .track-option:hover {
-  transform: translateY(-8px) scale(1.02);
-  background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.15) 0%,
-      rgba(255, 255, 255, 0.08) 100%);
-  box-shadow:
-    0 20px 60px rgba(255, 107, 53, 0.3),
-    0 15px 40px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(255, 107, 53, 0.5);
 }
 
 .track-option:hover::before {
-  opacity: 1;
-}
-
-.track-option:hover::after {
-  opacity: 1;
+  left: 100%;
 }
 
 .track-option:active {
-  transform: translateY(-4px) scale(1.01);
+  transform: translateY(-1px);
 }
 
-/* Animated glow effect for track options */
-@keyframes track-glow {
 
-  0%,
-  100% {
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-
-  50% {
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.2),
-      0 0 20px rgba(255, 107, 53, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-}
 
 
 
@@ -621,43 +569,38 @@ body {
   font-family: var(--font-tech);
   font-size: 1.3rem;
   font-weight: 900;
-  background: linear-gradient(135deg,
-      var(--accent-yellow) 0%,
-      var(--accent-orange) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: white;
   letter-spacing: 1.5px;
   margin-bottom: 0.5rem;
   position: relative;
   z-index: 2;
-  text-shadow: none;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   text-align: center;
   line-height: 1.1;
 }
 
 .track-option:hover .track-name {
-  transform: translateY(-2px);
-  filter: brightness(1.2);
+  transform: translateY(-1px);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .track-label {
   font-size: 0.85rem;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.9);
   letter-spacing: 3px;
   text-transform: uppercase;
   font-weight: 600;
   position: relative;
   z-index: 2;
   transition: all 0.3s ease;
-  opacity: 0.8;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .track-option:hover .track-label {
-  color: var(--text-white);
-  opacity: 1;
+  color: white;
   transform: translateY(-1px);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .track-divider {
@@ -2324,6 +2267,7 @@ body {
     width: 280px;
     height: 100px;
     margin: 0 auto;
+    border-radius: 20px;
   }
 
   .track-name {
@@ -2543,6 +2487,7 @@ body {
     width: 260px;
     height: 90px;
     margin: 0 auto;
+    border-radius: 18px;
   }
 
   .track-name {
