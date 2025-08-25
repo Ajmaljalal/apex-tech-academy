@@ -894,61 +894,39 @@ body {
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
-/* Track Container Layout for Desktop */
+/* Track Container Layout - Always Vertical */
 .tracks-wrapper {
   display: flex;
-  gap: 0;
+  flex-direction: column;
+  gap: 3rem;
   position: relative;
-  align-items: stretch;
+  align-items: center;
+  width: 100%;
 }
 
-/* Vertical Separator Line */
-.tracks-wrapper::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 5%;
-  bottom: 5%;
-  width: 2px;
-  background: linear-gradient(to bottom,
-      transparent,
-      rgba(255, 255, 255, 0.1) 10%,
-      rgba(255, 255, 255, 0.2) 50%,
-      rgba(255, 255, 255, 0.1) 90%,
-      transparent);
-  transform: translateX(-50%);
-  z-index: 3;
-  animation: pulse-line 3s ease-in-out infinite;
-}
+/* Vertical Separator Line - Removed since cards are now stacked vertically */
 
-@keyframes pulse-line {
 
-  0%,
-  100% {
-    opacity: 0.5;
-  }
-
-  50% {
-    opacity: 1;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  }
-}
 
 .track-container {
   position: relative;
-  flex: 1;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
+  display: flex;
+  justify-content: center;
 }
 
 .track-container:first-child {
-  margin-right: 2rem;
+  margin: 0;
 }
 
 .track-container:last-child {
-  margin-left: 2rem;
+  margin: 0;
 }
 
 .track-container:hover {
@@ -986,10 +964,15 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
 .track-header {
   margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
 }
 
 .track-title {
@@ -999,6 +982,8 @@ body {
   height: 3rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .dotted-text {
@@ -1139,11 +1124,14 @@ body {
 
 .track-info {
   margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
 }
 
 .duration-fee {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 0.5rem;
 }
@@ -1188,16 +1176,21 @@ body {
 
 .curriculum-container {
   flex: 1;
+  width: 100%;
 }
 
 .curriculum-container h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: var(--text-white);
+  text-align: center;
 }
 
 .curriculum-list {
   list-style: none;
+  text-align: left;
+  width: 100%;
+  max-width: 700px;
 }
 
 .curriculum-item {
@@ -1206,6 +1199,7 @@ body {
   margin-bottom: 1rem;
   opacity: 0;
   animation: fadeInLeft 0.5s ease-out forwards;
+  text-align: left;
 }
 
 .curriculum-item:nth-child(1) {
@@ -1276,6 +1270,8 @@ body {
   transition: all 0.3s ease;
   margin-top: 2rem;
   box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
+  width: 280px;
+  align-self: center;
 }
 
 .track-cta:hover {
@@ -1303,6 +1299,8 @@ body {
   overflow: hidden;
   transition: all 0.3s ease;
   animation: glow-border 2s ease-in-out infinite;
+  width: 280px;
+  align-self: center;
 }
 
 @keyframes glow-border {
@@ -2187,23 +2185,9 @@ body {
 /* Responsive Design */
 @media (max-width: 1024px) {
 
-  /* Stack tracks vertically on tablets and mobile */
+  /* Cards are already vertical, just adjust spacing if needed */
   .tracks-wrapper {
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .tracks-wrapper::before {
-    display: none;
-  }
-
-  .track-container:first-child,
-  .track-container:last-child {
-    margin: 0;
-  }
-
-  .track-container {
-    margin-bottom: 0;
+    gap: 2rem;
   }
 }
 
@@ -2339,9 +2323,20 @@ body {
     margin-bottom: 2rem;
   }
 
+  /* Further reduce gap between track cards on mobile */
+  .tracks-wrapper {
+    gap: 1.5rem;
+  }
+
   /* Track content adjustments */
   .track-content {
     padding: 1.5rem;
+  }
+
+  /* Button width adjustments for mobile */
+  .track-cta,
+  .details-btn {
+    width: 240px;
   }
 
   .track-title {
@@ -2376,7 +2371,7 @@ body {
 
   .duration-fee {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.5rem;
   }
 
@@ -2474,6 +2469,12 @@ body {
   .hero-subtitle {
     font-size: 1rem;
     margin-bottom: 1rem;
+  }
+
+  /* Button width adjustments for very small screens */
+  .track-cta,
+  .details-btn {
+    width: 220px;
   }
 
   .hero-tracks {
