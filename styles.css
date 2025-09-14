@@ -691,7 +691,6 @@ body {
 
 #aiCanvas,
 #itCanvas,
-#ai7monthCanvas,
 #ai3monthCanvas {
   width: 100%;
   height: 100%;
@@ -825,22 +824,6 @@ body {
       transparent);
 }
 
-/* Specific styles for 7-Month Gen AI Engineering track */
-.ai-7month-track .dotted-text {
-  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: brightness(1.2);
-}
-
-.ai-7month-track .dotted-text::after {
-  background: linear-gradient(90deg,
-      transparent,
-      #00f2fe 20%,
-      #4facfe 80%,
-      transparent);
-}
 
 /* Specific styles for 3-Month Gen AI Engineering track */
 .ai-3month-track .dotted-text {

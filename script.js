@@ -164,96 +164,6 @@ function initCanvasAnimations() {
     heroNetwork.animate();
   }
 
-  // 7-Month AI Canvas - Same as IT Specialist with Hexagonal Pattern
-  const ai7monthCanvas = document.getElementById('ai7monthCanvas');
-  if (ai7monthCanvas) {
-    const ai7monthCtx = ai7monthCanvas.getContext('2d');
-    ai7monthCtx.imageSmoothingEnabled = false;
-    const ai7monthNetwork = new ParticleNetwork(ai7monthCanvas, {
-      particleCount: Math.floor(50 * mobileOptions.particleCountMultiplier),
-      particleSize: 3,
-      lineDistance: Math.floor(150 * mobileOptions.lineDistanceMultiplier),
-      particleSpeed: 0.4 * mobileOptions.particleSpeedMultiplier
-    });
-
-    function resize7monthCanvas() {
-      ai7monthCanvas.width = ai7monthCanvas.offsetWidth;
-      ai7monthCanvas.height = ai7monthCanvas.offsetHeight;
-      ai7monthNetwork.resize();
-      ai7monthNetwork.createParticles();
-      create7monthHexagons();
-    }
-
-    setTimeout(() => {
-      resize7monthCanvas();
-    }, 100);
-
-    window.addEventListener('resize', resize7monthCanvas);
-
-    const hexagons7month = [];
-    const hexSize7month = 40;
-
-    function create7monthHexagons() {
-      hexagons7month.length = 0;
-      for (let x = 0; x < ai7monthCanvas.width + hexSize7month * 2; x += hexSize7month * 3) {
-        for (let y = 0; y < ai7monthCanvas.height + hexSize7month * 2; y += hexSize7month * 2) {
-          hexagons7month.push({
-            x: x + (Math.floor(y / (hexSize7month * 2)) % 2) * (hexSize7month * 1.5),
-            y: y,
-            alpha: Math.random() * 0.2 + 0.05,
-            alphaDirection: Math.random() > 0.5 ? 1 : -1,
-            size: hexSize7month
-          });
-        }
-      }
-    }
-
-    create7monthHexagons();
-
-    function draw7monthHexagon(ctx, x, y, size, alpha) {
-      ctx.beginPath();
-      for (let i = 0; i < 6; i++) {
-        const angle = (Math.PI / 3) * i;
-        const hx = x + size * Math.cos(angle);
-        const hy = y + size * Math.sin(angle);
-
-        if (i === 0) {
-          ctx.moveTo(hx, hy);
-        } else {
-          ctx.lineTo(hx, hy);
-        }
-      }
-      ctx.closePath();
-      ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
-      ctx.stroke();
-    }
-
-    function animate7monthAI() {
-      ai7monthCtx.clearRect(0, 0, ai7monthCanvas.width, ai7monthCanvas.height);
-
-      ai7monthCtx.save();
-      ai7monthNetwork.updateParticles();
-      ai7monthNetwork.drawParticles();
-      ai7monthNetwork.connectParticles();
-      ai7monthCtx.restore();
-
-      hexagons7month.forEach(hex => {
-        ai7monthCtx.save();
-        ai7monthCtx.globalAlpha = 0.5;
-        draw7monthHexagon(ai7monthCtx, hex.x, hex.y, hex.size, hex.alpha);
-        ai7monthCtx.restore();
-
-        hex.alpha += hex.alphaDirection * 0.003;
-        if (hex.alpha > 0.25 || hex.alpha < 0.05) {
-          hex.alphaDirection *= -1;
-        }
-      });
-
-      requestAnimationFrame(animate7monthAI);
-    }
-
-    animate7monthAI();
-  }
 
   // 3-Month AI Canvas - Same as IT Specialist with Hexagonal Pattern
   const ai3monthCanvas = document.getElementById('ai3monthCanvas');
@@ -803,12 +713,7 @@ function openRegistrationModal(program = '') {
     hiddenProgramInput.value = program;
 
     // Set the form action based on the program
-    if (program === 'gen-ai-7month') {
-      form.action = 'https://formspree.io/f/myzjjdvb';
-      // Update modal title
-      const modalTitle = document.querySelector('.modal-title');
-      modalTitle.textContent = 'Register for Gen AI Engineering (7 Months)';
-    } else if (program === 'gen-ai-3month') {
+    if (program === 'gen-ai-3month') {
       form.action = 'https://formspree.io/f/meokkldn';
       // Update modal title
       const modalTitle = document.querySelector('.modal-title');
