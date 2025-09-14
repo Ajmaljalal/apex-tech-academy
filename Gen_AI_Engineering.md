@@ -2,7 +2,7 @@
 
 ## Definition & Identity
 
-- The **Gen AI Engineer** is a distinct role—**hybrid**, combining aspects of software engineering, architecture, and product-building.
+- The **Gen AI Engineer** is a distinct role—**hybrid**, combining aspects of Agentic AI Software Engineering, architecture, and product-building.
 - Unlike **AI Researchers** (who develop new models) or **ML Engineers** (who train/fine‑tune models), Gen AI Engineers focus on **building real-world products** using existing AI models.
 - Tasks include: wiring up APIs, chaining prompts, connecting agents, adding guardrails, and ensuring production readiness.
 

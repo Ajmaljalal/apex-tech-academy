@@ -645,7 +645,7 @@
 - **Core JavaScript:** Variables, data structures, control flow, functions, OOP
 - **Advanced JavaScript:** Decorators, generators, async/await, destructuring
 - **Web Development:** Express.js/Fastify, APIs, databases, full-stack applications
-- **Software Engineering:** Clean code, testing, documentation, version control
+- **Agentic AI Software Engineering:** Clean code, testing, documentation, version control
 - **Professional Skills:** Git/GitHub workflow, LinkedIn presence, portfolio development
 
 ### Gen AI Engineering (Months 5-7)
